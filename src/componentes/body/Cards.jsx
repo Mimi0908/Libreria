@@ -5,8 +5,8 @@ import TodayIcon from '@mui/icons-material/Today';
 export default function Cards(props) {
     return (
         <div className='card2'>
-            <img src={props.items.image} alt='logo'/>
-            <div>
+            <img src={props.items.image} alt='logo' className='image'/>
+            <div className='informacion'>
                 <h5>{props.items.title}</h5>
                 <span className='fecha'>Fecha de Lanzamiento: <br></br><TodayIcon></TodayIcon>{props.items.fechaLanzamiento}</span>
                 <p>{props.items.description}</p>
