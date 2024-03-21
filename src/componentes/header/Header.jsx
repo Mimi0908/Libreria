@@ -3,9 +3,10 @@ import './header.css';
 import Logo from '../../../public/logo.png';
 import HomeIcon from '@mui/icons-material/Home';
 import LibraryBooksIcon from '@mui/icons-material/LibraryBooks';
-import ContactsIcon from '@mui/icons-material/Contacts';
+import HelpIcon from '@mui/icons-material/Help';
 import AssignmentIndIcon from '@mui/icons-material/AssignmentInd';
 import LoginIcon from '@mui/icons-material/Login';
+import PersonIcon from '@mui/icons-material/Person';
 
 const Header = () => {
     return (
@@ -19,33 +20,49 @@ const Header = () => {
                     <div className="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                             <li className="nav-item">
-                                <a className="nav-link" href="#"><HomeIcon />Home</a>
+                                <a className="nav-link" href="#"><HomeIcon className='icono' />Home</a>
                             </li>
                             <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                    <LibraryBooksIcon/>Categoria
+                                <a class="nav-link" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <LibraryBooksIcon className='icono' />Categoria
                                 </a>
                                 <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="#">Action</a></li>
-                                    <li><a class="dropdown-item" href="#">Another action</a></li>
-                                    <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                    <li><a class="dropdown-item" href="#">Clásicos</a></li>
+                                    <li><a class="dropdown-item" href="#">Romance</a></li>
+                                    <li><a class="dropdown-item" href="#">Thriller</a></li>
                                 </ul>
                             </li>
-
-                            <li className="nav-item">
-                                <a className="nav-link" href="#"><ContactsIcon />Contactos</a>
+                            <li className="nav-item dropdown">
+                                <a className="nav-link" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><PersonIcon className='icono' />Autores</a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="#">Alice Kellen</a></li>
+                                    <li><a class="dropdown-item" href="#">Carl Sagan</a></li>
+                                    <li><a class="dropdown-item" href="#">Gabriel García M.</a></li>
+                                    <li><a class="dropdown-item" href="#">Mark Oliver Everett</a></li>
+                                    <li><a class="dropdown-item" href="#">Won-pyung Sohn</a></li>
+                                    <li><a class="dropdown-item" href="#">Natanael Méndez M.</a></li>
+                                </ul>
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link" href="#"><LoginIcon />Login</a>
+                                <a className="nav-link" href="#"><HelpIcon className='icono' />Q&A</a>
                             </li>
-                            <li className="nav-item">
-                                <a className="nav-link" href="#"><AssignmentIndIcon />Sign Up</a>
-                            </li>
+                            
                         </ul>
+                        <span>  </span>
                         <form className="d-flex" role="search">
                             <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
-                            <button className="btn btn-outline-danger" type="submit">Search</button>
+                            <button className="btn btn-danger" type="submit">Search</button>
                         </form>
+                        <div className="collapse navbar-collapse" id="navbarSupportedContent">
+                            <ul className="navbar-nav nav2 me-auto mb-2 mb-lg-0 ">
+                                <li className="nav-item">
+                                    <a className="btn btn-outline-danger" href="#"><AssignmentIndIcon className='icono' />Sign Up</a>
+                                </li>
+                                <li className="nav-item">
+                                    <a className="btn btn-danger boton" href="#"><LoginIcon className='icono' />Login</a>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </nav>

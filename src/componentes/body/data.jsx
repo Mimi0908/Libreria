@@ -12,13 +12,14 @@ import diccionarioAjedrez from './diccionarioAjedrez.jpg'
 import poderPalabras from './poderPalabras.jpg'
 import nietos from './nietos.jpg'
 import almendra from './almendra.jpg'
-import miPortada from './miPortada.jpg'
+import todoLoQueNunca from './todoLoQueNuncaFuimos.jpg'
+import satanas from  './satanas.jpg'
 
 export default [
     {   id:1,
         title: "Cien años de soledad",
         autor: "Gabriel García Márquez",
-        fechaLanzamiento:"20-12-1980",
+        fechaLanzamiento:"20-05-1967",
         description: "Cien años de soledad se ha convertido en la novela más emblemática de la literatura latinoamericana.",        
         image: cienAños,
         precio:"$1000"
@@ -28,7 +29,7 @@ export default [
         id:2,
         title: "COSMOS",
         autor: "Carl Sagan",
-        fechaLanzamiento:"20-12-1989",
+        fechaLanzamiento:"25-12-1980",
         description: "Cosmos trata de la ciencia en su contexto humano más amplio y explica cómo la ciencia y la civilización se desarrollan conjuntamente.",        
         image: cosmos,
         precio:"$25000"
@@ -50,7 +51,7 @@ export default [
         id:4,
         title: "El amor en los tiempos del cólera",
         autor: "Gabriel García Márquez",
-        fechaLanzamiento:"20-12-1995",
+        fechaLanzamiento:"10-01-1961",
         description: "Cosmos trata de la ciencia en su contexto humano más amplio y explica cómo la ciencia y la civilización se desarrollan conjuntamente.",        
         image: colera,
         precio:"$25000"
@@ -60,7 +61,7 @@ export default [
         id:5,
         title: "Todos los cuentos",
         autor: "Gabriel García Márquez",
-        fechaLanzamiento:"20-12-1989",
+        fechaLanzamiento:"20-06-1975",
         description: "En este volumen, los oyentes encontrarán los primeros relatos que García Márquez publicó en Ojos de perro azul, entre ellos, Monólogo de Isabel viendo llover en Macondo.",        
         image: cuentos,
         precio:"$25000"
@@ -70,7 +71,7 @@ export default [
         id:6,
         title: "Contacto",
         autor: "Carl Sagan",
-        fechaLanzamiento:"20-12-1989",
+        fechaLanzamiento:"09-12-1985",
         description: "Cosmos trata de la ciencia en su contexto humano más amplio y explica cómo la ciencia y la civilización se desarrollan conjuntamente.",        
         image: contacto,
         precio:"$25000"
@@ -80,7 +81,7 @@ export default [
         id:7,
         title: "Cerebro de Broca",
         autor: "Carl Sagan",
-        fechaLanzamiento:"20-12-1989",
+        fechaLanzamiento:"15-02-1979",
         description: "Cosmos trata de la ciencia en su contexto humano más amplio y explica cómo la ciencia y la civilización se desarrollan conjuntamente.",        
         image: cerebroBroca,
         precio:"$25000"
@@ -89,8 +90,8 @@ export default [
     {
         id:8,
         title: "Los miserables",
-        autor: "Carl Sagan",
-        fechaLanzamiento:"20-12-1989",
+        autor: "Victor Hugo",
+        fechaLanzamiento:"03-10-1862",
         description: "Cosmos trata de la ciencia en su contexto humano más amplio y explica cómo la ciencia y la civilización se desarrollan conjuntamente.",        
         image: miserables,
         precio:"$25000"
@@ -99,8 +100,8 @@ export default [
     {
         id:9,
         title: "Los cuatro acuerdos",
-        autor: "Carl Sagan",
-        fechaLanzamiento:"20-12-1989",
+        autor: " Don Miguel Ruiz",
+        fechaLanzamiento:"05-07-1997",
         description: "Cosmos trata de la ciencia en su contexto humano más amplio y explica cómo la ciencia y la civilización se desarrollan conjuntamente.",        
         image: cuatroAcuerdos,
         precio:"$25000"
@@ -109,8 +110,8 @@ export default [
     {
         id:10,
         title: "La lógica de la mentira",
-        autor: "Carl Sagan",
-        fechaLanzamiento:"20-12-1989",
+        autor: "Natanael Méndez Matos",
+        fechaLanzamiento:"17-08-2013",
         description: "Cosmos trata de la ciencia en su contexto humano más amplio y explica cómo la ciencia y la civilización se desarrollan conjuntamente.",        
         image: logicaMentira,
         precio:"$25000"
@@ -119,8 +120,8 @@ export default [
     {
         id:11,
         title: "Diccionario de ajedrez",
-        autor: "Carl Sagan",
-        fechaLanzamiento:"20-12-1989",
+        autor: "Antonio Gude",
+        fechaLanzamiento:"20-07-2005",
         description: "Cosmos trata de la ciencia en su contexto humano más amplio y explica cómo la ciencia y la civilización se desarrollan conjuntamente.",        
         image: diccionarioAjedrez,
         precio:"$25000"
@@ -130,7 +131,7 @@ export default [
         id:12,
         title: "El poder de las palabras",
         autor: "Sigman Mariano",
-        fechaLanzamiento:"20-12-1989",
+        fechaLanzamiento:"03-10-2022",
         description: "Cosmos trata de la ciencia en su contexto humano más amplio y explica cómo la ciencia y la civilización se desarrollan conjuntamente.",        
         image: poderPalabras,
         precio:"$25000"
@@ -138,9 +139,9 @@ export default [
 
     {
         id:13,
-        title: "El poder de las palabras",
-        autor: "Sigman Mariano",
-        fechaLanzamiento:"20-12-1989",
+        title: "Cosas que los nietos deberían saber",
+        autor: " Mark Oliver Everett",
+        fechaLanzamiento:"20-11-2007",
         description: "Cosmos trata de la ciencia en su contexto humano más amplio y explica cómo la ciencia y la civilización se desarrollan conjuntamente.",        
         image: nietos,
         precio:"$25000"
@@ -148,9 +149,9 @@ export default [
 
     {
         id:14,
-        title: "El poder de las palabras",
-        autor: "Sigman Mariano",
-        fechaLanzamiento:"20-12-1989",
+        title: "Almendra",
+        autor: "Won-pyung Sohn",
+        fechaLanzamiento:"31-03-2017",
         description: "Cosmos trata de la ciencia en su contexto humano más amplio y explica cómo la ciencia y la civilización se desarrollan conjuntamente.",        
         image: almendra,
         precio:"$25000"
@@ -158,11 +159,21 @@ export default [
 
     {
         id:15,
-        title: "El poder de las palabras",
-        autor: "Sigman Mariano",
-        fechaLanzamiento:"20-12-1989",
+        title: "Todo lo que nunca fuimos",
+        autor: "Alice Kellen",
+        fechaLanzamiento:"05-02-2019",
         description: "Cosmos trata de la ciencia en su contexto humano más amplio y explica cómo la ciencia y la civilización se desarrollan conjuntamente.",        
-        image: miPortada,
-        precio:"$25000"
+        image: todoLoQueNunca,
+        precio:"$48300"
+    },
+
+    {
+        id:16,
+        title: "Satanás",
+        autor: "Mario Mendoza",
+        fechaLanzamiento:"18-06-2002",
+        description: "Cosmos trata de la ciencia en su contexto humano más amplio y explica cómo la ciencia y la civilización se desarrollan conjuntamente.",        
+        image: satanas,
+        precio:"$46000"
     }
 ]
