@@ -68,6 +68,10 @@
     margin-left: 50%;
     transform: translateX(-50%);
 }
+.carousel-item{
+
+   width: 100%;
+}
 @media screen and (max-width:800px) {
     .card2{
         padding: 3% 5%;
