@@ -1,0 +1,25 @@
+.bloque{
+    padding: 5% 15%;
+}
+.contenido{
+    background-color:  white;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    border-radius: 25px;
+    text-align: center;
+    padding: 8% 5%;
+    margin: auto;
+    align-items: center;
+    width: 70%;
+    height: 60%;
+}
+
+.contenido button{
+    margin: 40px 0px 0px;
+}
+.contenido h1{
+    font-weight: bolder;
+    margin-bottom: 40px;
+}
+.caja{
+    margin: 40px 100px;
+}

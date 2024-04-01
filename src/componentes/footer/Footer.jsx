@@ -37,10 +37,10 @@ const Footer = () => {
                 <div className="footer-box">
                     <div className="tipus">SÍGUENOS EN</div>
                     <ul className='icons-list'>
-                        <li><a href='#'><XIcon className='icon'/></a></li>
-                        <li><a href='#'><InstagramIcon className='icon'/></a></li>
-                        <li><a href='#'><FacebookIcon className='icon'/></a></li>
-                        <li><a href='#'><YouTubeIcon className='icon'/></a></li>
+                        <li><a href='https://twitter.com/?lang=es'><XIcon className='icon'/></a></li>
+                        <li><a href='https://www.instagram.com/'><InstagramIcon className='icon'/></a></li>
+                        <li><a href='https://web.facebook.com/'><FacebookIcon className='icon'/></a></li>
+                        <li><a href='https://www.youtube.com'><YouTubeIcon className='icon'/></a></li>
                     </ul>
                 </div>
             </div>
