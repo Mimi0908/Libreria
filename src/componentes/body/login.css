@@ -23,3 +23,37 @@
 .caja{
     margin: 40px 100px;
 }
+
+.registro{
+    background-color:  white;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    border-radius: 25px;
+    text-align: center;
+    padding: 8% 5%;
+    margin: auto;
+    align-items: center;
+    width: 70%;
+    height: 60%;
+    
+}
+.registro form{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.registro .cajabtn{
+
+    grid-column: span 2;
+}
+.registro button{
+    height: 40px;
+    width: 150px;
+    margin: 40px 0px 0px;
+}
+.registro h1{
+    font-weight: bolder;
+    margin-bottom: 40px;
+}
+.registro form .caja{
+    margin: 40px ;
+}

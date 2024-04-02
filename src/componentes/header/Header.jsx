@@ -7,6 +7,7 @@ import HelpIcon from '@mui/icons-material/Help';
 import AssignmentIndIcon from '@mui/icons-material/AssignmentInd';
 import LoginIcon from '@mui/icons-material/Login';
 import PersonIcon from '@mui/icons-material/Person';
+import {Link} from 'react-router-dom';
 
 const Header = () => {
     return (
@@ -55,12 +56,16 @@ const Header = () => {
                         </form>
                         <div className="collapse navbar-collapse" id="navbarSupportedContent">
                             <ul className="navbar-nav nav2 me-auto mb-2 mb-lg-0 ">
-                                <li className="nav-item">
-                                    <a className="btn btn-outline-danger" href="#"><AssignmentIndIcon className='icono' />Sign Up</a>
-                                </li>
-                                <li className="nav-item">
-                                    <a className="btn btn-danger boton" href="#"><LoginIcon className='icono' />Login</a>
-                                </li>
+                                <Link to='/Sign-Up'>
+                                    <li className="nav-item">
+                                        <a className="btn btn-outline-danger" href="#"><AssignmentIndIcon className='icono' />Sign Up</a>
+                                    </li>
+                                </Link>
+                                <Link to='/Login'>
+                                    <li className="nav-item">
+                                        <a className="btn btn-danger boton" href="#"><LoginIcon className='icono' />Login</a>
+                                    </li>
+                                </Link>
                             </ul>
                         </div>
                     </div>

@@ -1,9 +1,12 @@
 import React from 'react';
 import './login.css';
+import Header from '../header/Header';
+import Footer from '../footer/Footer';
 
 const Login = () => {
     return (
         <div>
+            <Header />
             <div className="bloque">
                 <div className="contenido">
                     <h1>LOGIN</h1>
@@ -21,6 +24,7 @@ const Login = () => {
                     </form>
                 </div>
             </div>
+            <Footer />
         </div>
     );
 }
