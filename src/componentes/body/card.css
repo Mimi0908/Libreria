@@ -5,7 +5,6 @@
 .active{
     background-color: rgb(244, 53, 53) !important;
     color: white !important;
-    border: solid 1px rgb(244, 53, 53) !important;
     font-weight: bolder;
 }
 .page-link{
@@ -13,6 +12,7 @@
 }
 .page-link:hover{
     background-color: rgb(244, 53, 53);
+    border: solid 1px rgb(244, 53, 53) !important;
     color: white;
 }
 .divCards{

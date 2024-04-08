@@ -28,7 +28,7 @@ const Header = () => {
                                     <LibraryBooksIcon className='icono' />Categoria
                                 </a>
                                 <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="#">Clásicos</a></li>
+                                    <li><a class="dropdown-item" href="#">Literatura clásica</a></li>
                                     <li><a class="dropdown-item" href="#">Romance</a></li>
                                     <li><a class="dropdown-item" href="#">Thriller</a></li>
                                 </ul>

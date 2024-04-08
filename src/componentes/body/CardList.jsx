@@ -1,15 +1,19 @@
-import React from 'react'
+import React,{ useState } from 'react'
 import Cards from './Cards'
 import data from './data'
 import banner1 from'./banner1.png'
 
 
 function CardList() {
-    const cards = data.map(items => {
-        return (
-            <Cards key={items.id} items={items} />
-        )
-    })
+   const [paginaActual, setPaginaActual] = useState(1);
+   const librosPorPagina = 16;
+   const indicePrimerLibro = (paginaActual - 1) * librosPorPagina;
+   const librosPaginaActual = data.slice(indicePrimerLibro, indicePrimerLibro + librosPorPagina);
+
+   const cambiarPagina = (nuevaPagina) => {
+       setPaginaActual(nuevaPagina);
+   };
+
     return (
         <div className='body'>
             <div id="carouselExampleIndicators" class="carousel slide"  data-bs-ride="carousel">
@@ -39,16 +43,23 @@ function CardList() {
                 </button>
             </div>
             <div className='divCards'>
-                {cards}
+                {librosPaginaActual.map(libro => (
+                    <Cards key={libro.id} libro={libro} />
+                ))}
             </div>
             <nav aria-label="Page navigation example">
-                <ul class="pagination">
-                    <li class="page-item"><a class="page-link disabled" href="#">Prev</a></li>
-                    <li class="page-item"><a class="page-link active" href="#">1</a></li>
-                    <li class="page-item"><a class="page-link" href="#">2</a></li>
-                    <li class="page-item"><a class="page-link" href="#">3</a></li>
-                    <li class="page-item"><a class="page-link" href="#">4</a></li>
-                    <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                <ul className="pagination">
+                    <li className={`page-item ${paginaActual === 1 ? 'disabled' : ''}`}>
+                        <button className="page-link" onClick={() => cambiarPagina(paginaActual - 1)}>Prev</button>
+                    </li>
+                    {Array.from({ length: Math.ceil(data.length / librosPorPagina) }, (_, index) => (
+                        <li key={index} className={`page-item ${paginaActual === index + 1 ? 'active' : ''}`}>
+                            <button className="page-link" onClick={() => cambiarPagina(index + 1)}>{index + 1}</button>
+                        </li>
+                    ))}
+                    <li className={`page-item ${paginaActual === Math.ceil(data.length / librosPorPagina) ? 'disabled' : ''}`}>
+                        <button className="page-link" onClick={() => cambiarPagina(paginaActual + 1)}>Next</button>
+                    </li>
                 </ul>
             </nav>
         </div>
