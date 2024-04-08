@@ -32,18 +32,18 @@
     padding: 8% 5%;
     margin: auto;
     align-items: center;
-    width: 70%;
+    width: 90%;
     height: 60%;
     
 }
 .registro form{
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
 }
 
 .registro .cajabtn{
 
-    grid-column: span 2;
+    grid-column: span 3;
 }
 .registro button{
     height: 40px;
@@ -56,4 +56,9 @@
 }
 .registro form .caja{
     margin: 40px ;
+}
+@media screen and (min-width:800px) {
+    .registro{
+        width: 100%;
+    }
 }
