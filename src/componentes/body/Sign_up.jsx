@@ -4,8 +4,10 @@ import './login.css';
 import Header from '../header/Header';
 import Footer from '../footer/Footer';
 import { Link } from 'react-router-dom';
+import Colombia from './colombia'
 
 const SignUp = () => {
+    const [depIndex, setdepIndex]=useState(-1)
     const [identificacionError, setIdentificacionError] = useState(false)
     const [nomError, setNomError] = useState(false)
     const [apellidoError, setApellidoError] = useState(false)
@@ -14,6 +16,8 @@ const SignUp = () => {
     const [direccionError, setDireccionError] = useState(false)
     const [telefonoError, setTelefonoError] = useState(false)
     const [fechaNacimientoError, setFechaNacimientoError] = useState(false)
+    const [departamentoError, setDepartamentoError] = useState(false)
+    const [municipioError, setMunicipioError] = useState(false)
     const [passwordError, setPasswordError] = useState(false)
     const [passwordErrorRepeat, setPasswordErrorRepeat] = useState(false)
     const [passComparacion, setPassComparacion] = useState(false)
@@ -40,12 +44,21 @@ const SignUp = () => {
     function errorFechaNacimiento() {
         setFechaNacimientoError(false)
     }
+    function depError() {
+        setDepartamentoError(false)
+    }
+    function munError() {
+        setMunicipioError(false)
+    }
     function passError() {
         setPasswordError(false)
     }
     function passRepeat() {
         setPassComparacion(false)
         setPasswordErrorRepeat(false)
+    }
+    function extraerOpcion(){
+
     }
     const [values, setValues] = useState({
         identificacion: "",
@@ -95,7 +108,15 @@ const SignUp = () => {
         } else if (values.fechaNacimiento === "") {
             setFechaNacimientoError(true)
             return
-        } else if (!validPassword.test(values.password)) {
+        } 
+        else if (values.departamento === "0") {
+            setDepartamentoError(true)
+            return
+        }
+        else if (values.municipio === "0") {
+            setMunicipioError(true)
+            return
+        }else if (!validPassword.test(values.password)) {
             setPasswordError(true)
             return
         } else if (values.passRepeat.length === 0) {
@@ -141,62 +162,82 @@ const SignUp = () => {
                     <h1>SIGN UP</h1>
                     <form onSubmit={handleSubmit} ref={form}>
                         <div className="mb-3 caja">
-                            <label for="exampleInputEmail1" className="form-label">Identificación</label>
+                            <label htmlFor="identificacion" className="form-label">Identificación</label>
                             <input type="number" className="form-control" name="identificacion" id="identificacion" aria-describedby="emailHelp" placeholder='Debe estar entre 5 y 10 dígitos' onChange={handleChange} onClick={idError} />
-                            {identificacionError ? <p>La identificación debe estar entre 5 y 10 números</p> : ""}
+                            {identificacionError ? <p className='text-danger'>La identificación debe estar entre 5 y 10 números</p> : ""}
                         </div>
                         <div className="mb-3 caja">
-                            <label for="exampleInputEmail1" className="form-label">Nombres</label>
+                            <label htmlFor="nombres" className="form-label">Nombres</label>
                             <input type="text" className="form-control" name="nombres" id="nombres" aria-describedby="nameHelp" placeholder='Debe ser mínimo 3 caracteres' onChange={handleChange} onClick={nombreError} />
-                            {nomError ? <p>El nombre debe contener mínimo 3 caracteres</p> : ""}
+                            {nomError ? <p className='text-danger'>El nombre debe contener mínimo 3 caracteres</p> : ""}
                         </div>
                         <div className="mb-3 caja">
-                            <label for="exampleInputEmail1" className="form-label">Apellidos</label>
+                            <label htmlFor="apellidos" className="form-label">Apellidos</label>
                             <input type="text" className="form-control" name="apellidos" id="apellidos" aria-describedby="apellidosHelp" placeholder='Debe ser de mínimo tres caracteres' onChange={handleChange} onClick={apelliError} />
-                            {apellidoError ? <p>El apellido debe contener mínimo 3 caracteres</p> : ""}
+                            {apellidoError ? <p className='text-danger'>El apellido debe contener mínimo 3 caracteres</p> : ""}
                         </div>
                         <div className="mb-3 caja">
-                            <label for="exampleInputEmail1" className="form-label">Correo Electrónico</label>
-                            <input type="email" className="form-control" name="email" id="email" aria-describedby="emailHelp" placeholder='Debe ser un formato válido. Ejemplo: alguien@gmail.com' onChange={handleChange} onClick={errorEmail} />
-                            {emailError ? <p>El email debe tener la estructura de una dirección de correo electrónico. Verbigracia: alguien@gmail.com</p> : ""}
-                            {emailVacio ? <p>Debe introducir una dirección de correo electrónico.</p> : ""}
+                            <label htmlFor="email" className="form-label">Correo Electrónico</label>
+                            <input type="email" className="form-control" name="email" id="email" aria-describedby="emailHelp" placeholder='alguien@gmail.com' onChange={handleChange} onClick={errorEmail} />
+                            {emailError ? <p className='text-danger'>El email debe tener la estructura de una dirección de correo electrónico. Verbigracia: alguien@gmail.com</p> : ""}
+                            {emailVacio ? <p className='text-danger'>Debe introducir una dirección de correo electrónico.</p> : ""}
                         </div>
                         <div className="mb-3 caja">
-                            <label for="exampleInputEmail1" className="form-label">Dirección</label>
+                            <label htmlFor="direccion" className="form-label">Dirección</label>
                             <input type="text" className="form-control" name="direccion" id="direccion" aria-describedby="emailHelp" placeholder='Debe ser de mínimo quince caracteres' onChange={handleChange} onClick={dirError} />
-                            {direccionError ? <p>La dirección debe contener mínimo 15 caracteres</p> : ""}
+                            {direccionError ? <p className='text-danger'>La dirección debe contener mínimo 15 caracteres</p> : ""}
                         </div>
                         <div className="mb-3 caja">
-                            <label for="exampleInputEmail1" className="form-label">Telefono</label>
+                            <label htmlFor="telefono" className="form-label">Teléfono</label>
                             <input type="number" className="form-control" name="telefono" id="telefono" aria-describedby="emailHelp" placeholder='Debe ser de diez números' onChange={handleChange} onClick={telError} />
-                            {telefonoError ? <p>El teléfono debe ser de 10 números</p> : ""}
+                            {telefonoError ? <p className='text-danger'>El teléfono debe ser de 10 números</p> : ""}
                         </div>
                         <div className="mb-3 caja">
-                            <label for="exampleInputEmail1" className="form-label">Fecha Nacimiento</label>
+                            <label htmlFor="fechaNacimiento" className="form-label">Fecha Nacimiento</label>
                             <input type="date" className="form-control" name="fechaNacimiento" id="fechaNacimiento" aria-describedby="emailHelp" placeholder='Debe ser de diez números' onChange={handleChange} onClick={errorFechaNacimiento} />
-                            {fechaNacimientoError ? <p>Debe introducir una fecha de nacimiento</p> : ""}
+                            {fechaNacimientoError ? <p className='text-danger'>Debe introducir una fecha de nacimiento</p> : ""}
                         </div>
                         <div className="mb-3 caja">
-                            <label for="exampleInputPassword1" className="form-label">Contraseña</label>
+                            <label htmlFor="departamento" className="form-label">Departamento</label>
+                            <select class="form-select" aria-label="Default select example" name='departamento' id='departamento' onChange={handleChange} onClick={depError}>
+                                <option value="0" selected>Abrir el menú</option>
+                                {Colombia.map((item,e)=>(
+                                    <option ket={e} value={item.id}>{item.departamento}</option>
+                                ))}
+                            </select>
+                            {departamentoError ? <p className='text-danger'>Debe introducir una opción</p> : ""}
+                        </div>
+                        <div className="mb-3 caja">
+                            <label htmlFor="municipio" className="form-label">Municipio</label>
+                            <select class="form-select" aria-label="Default select example" name='municipio' id='municipio' onChange={extraerOpcion} onClick={munError}>
+                                <option value="0" selected>Abrir el menú</option>
+                                {/* {Colombia[depIndex].municipios.map((item,e)=>(
+                                    <option key={e}>{item[e]}</option>
+                                ))} */}
+                            </select>
+                            {municipioError ? <p className='text-danger'>Debe introducir una opción</p> : ""}
+                        </div>
+                        <div className="mb-3 caja">
+                            <label htmlFor="password" className="form-label">Contraseña</label>
                             <input type="password" className="form-control" name="password" id="password" onChange={handleChange} onClick={passError} />
-                            {passwordError ? <p>La contraseña no cumple con los requisitos mínimos solicitados(Mínimo 8 caracteres de longitud. Almenos una letra mayúscula. Almenos una letra minúscula. Almenos un número. Almenos un caracter especial).</p> : ""}
+                            {passwordError ? <p className='text-danger'>La contraseña no cumple con los requisitos mínimos solicitados(Mínimo 8 caracteres de longitud. Almenos una letra mayúscula. Almenos una letra minúscula. Almenos un número. Almenos un caracter especial).</p> : ""}
                         </div>
                         <div className="mb-3 caja">
-                            <label for="exampleInputPassword1" className="form-label">Confirmar contraseña</label>
+                            <label htmlFor="passRepeat" className="form-label">Confirmar contraseña</label>
                             <input type="password" className="form-control" name="passRepeat" id="passRepeat" onChange={handleChange} onClick={passRepeat} />
-                            {passComparacion ? <p>Las contraseñas ingresadas no coinciden</p> : ""}
-                            {passwordErrorRepeat ? <p>Este campo no puede quedar vacío.</p> : ""}
+                            {passComparacion ? <p className='text-danger'>Las contraseñas ingresadas no coinciden</p> : ""}
+                            {passwordErrorRepeat ? <p className='text-danger'>Este campo no puede quedar vacío.</p> : ""}
                         </div>
                         <div className="form-check d-flex justify-content-center mb-5">
                             <input className="form-check-input me-2" type="checkbox" value="" id="form2Example3cg" />
                             <label className="form-check-label" htmlFor="form2Example3g">
-                                Acepta todos nuestros <a href="#!" className="text-body"><u>Terminos y condiciones</u></a>
+                                Acepta todos nuestros <a href="#!" className="fw-bold text-danger"><u>Terminos y condiciones</u></a>
                             </label>
                         </div>
                         <div className="cajabtn">
                             <button type="submit" className="btn btn-danger">Registrar</button>
                         </div>
-                        <p className="text-center text-muted mt-5 mb-0">Tienes una cuenta? <a href="#!" className="fw-bold text-body"><u><Link to='/login'>Login here</Link></u></a></p>
+                        <p className="text-center text-muted mt-5 mb-0">Tienes una cuenta? <Link to='/login'><a href="#!" className="fw-bold text-danger"><u>Login here</u></a></Link></p>
                     </form>
                 </div>
             </div>
