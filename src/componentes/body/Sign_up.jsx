@@ -2,12 +2,14 @@ import React, { useState, useRef } from 'react';
 
 import './login.css';
 import Header from '../header/Header';
+import Swal from 'sweetalert2'
 import Footer from '../footer/Footer';
 import { Link } from 'react-router-dom';
 import Colombia from './colombia'
 
 const SignUp = () => {
     const [depIndex, setdepIndex]=useState(-1)
+    const [munIndex, setmunIndex]=useState(-1)
     const [identificacionError, setIdentificacionError] = useState(false)
     const [nomError, setNomError] = useState(false)
     const [apellidoError, setApellidoError] = useState(false)
@@ -57,8 +59,15 @@ const SignUp = () => {
         setPassComparacion(false)
         setPasswordErrorRepeat(false)
     }
-    function extraerOpcion(){
-
+    function handleChangeDepartamento(e){
+        const index=e.target.value;
+        setdepIndex(index)
+        console.log("opcion seleccionada: "+depIndex)
+    }
+    function handleChangeMunicipio(e){
+        const index=e.target.value;
+        setmunIndex(index)
+        console.log("opcion seleccionada: "+munIndex)
     }
     const [values, setValues] = useState({
         identificacion: "",
@@ -68,11 +77,13 @@ const SignUp = () => {
         direccion: "",
         telefono: "",
         fechaNacimiento: "",
+        departamento:"",
+        municipio:"",
         password: "",
         passRepeat: ""
     });
     const handleChange = (e) => {
-        const { name, value } = e.target
+        const { name, value } = e.target;
         const newValues = {
             ...values,
             [name]: value,
@@ -109,11 +120,11 @@ const SignUp = () => {
             setFechaNacimientoError(true)
             return
         } 
-        else if (values.departamento === "0") {
+        else if (departamento.value === "0") {
             setDepartamentoError(true)
             return
         }
-        else if (values.municipio === "0") {
+        else if (municipioError.value === "0") {
             setMunicipioError(true)
             return
         }else if (!validPassword.test(values.password)) {
@@ -199,21 +210,21 @@ const SignUp = () => {
                         </div>
                         <div className="mb-3 caja">
                             <label htmlFor="departamento" className="form-label">Departamento</label>
-                            <select class="form-select" aria-label="Default select example" name='departamento' id='departamento' onChange={handleChange} onClick={depError}>
+                            <select class="form-select" aria-label="Default select example" name='departamento' id='departamento' onChange={handleChangeDepartamento} onClick={depError}>
                                 <option value="0" selected>Abrir el menú</option>
                                 {Colombia.map((item,e)=>(
-                                    <option ket={e} value={item.id}>{item.departamento}</option>
+                                    <option key={e} value={e}>{item.departamento}</option>
                                 ))}
                             </select>
                             {departamentoError ? <p className='text-danger'>Debe introducir una opción</p> : ""}
                         </div>
                         <div className="mb-3 caja">
                             <label htmlFor="municipio" className="form-label">Municipio</label>
-                            <select class="form-select" aria-label="Default select example" name='municipio' id='municipio' onChange={extraerOpcion} onClick={munError}>
+                            <select class="form-select" aria-label="Default select example" name='municipio' id='municipio' onChange={handleChangeMunicipio} onClick={munError}>
                                 <option value="0" selected>Abrir el menú</option>
-                                {/* {Colombia[depIndex].municipios.map((item,e)=>(
-                                    <option key={e}>{item[e]}</option>
-                                ))} */}
+                                { Colombia[depIndex].ciudades.map((item,e)=>(
+                                    <option key={e} value={e}>{item}</option>
+                                ))}
                             </select>
                             {municipioError ? <p className='text-danger'>Debe introducir una opción</p> : ""}
                         </div>

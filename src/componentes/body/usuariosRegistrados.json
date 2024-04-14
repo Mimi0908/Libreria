@@ -1,1 +1,15 @@
-[]
+[
+    {
+        "id": 1,
+        "identificacion": "",
+        "nombres": "",
+        "apellidos": "",
+        "email": "",
+        "direccion": "",
+        "telefono": "",
+        "fechaNacimiento": "",
+        "estado": "activo",
+        "rol": "Usuario",
+        "fecha_creacion": "2024-04-12T19:27:22.619Z"
+    }
+]
