@@ -1,6 +1,6 @@
 import React from 'react';
 import './header.css';
-import Logo from '../../../public/logo.png';
+import Logo from '/logo.png';
 import HomeIcon from '@mui/icons-material/Home';
 import LibraryBooksIcon from '@mui/icons-material/LibraryBooks';
 import HelpIcon from '@mui/icons-material/Help';
@@ -23,25 +23,25 @@ const Header = () => {
                             <li className="nav-item">
                                 <a className="nav-link" href="#"><HomeIcon className='icono' />Home</a>
                             </li>
-                            <li class="nav-item dropdown">
-                                <a class="nav-link" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <li className="nav-item dropdown">
+                                <a className="nav-link" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                     <LibraryBooksIcon className='icono' />Categoria
                                 </a>
-                                <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="#">Literatura clásica</a></li>
-                                    <li><a class="dropdown-item" href="#">Romance</a></li>
-                                    <li><a class="dropdown-item" href="#">Thriller</a></li>
+                                <ul className="dropdown-menu">
+                                    <li><a className="dropdown-item" href="#">Literatura clásica</a></li>
+                                    <li><a className="dropdown-item" href="#">Romance</a></li>
+                                    <li><a className="dropdown-item" href="#">Thriller</a></li>
                                 </ul>
                             </li>
                             <li className="nav-item dropdown">
                                 <a className="nav-link" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><PersonIcon className='icono' />Autores</a>
-                                <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="#">Alice Kellen</a></li>
-                                    <li><a class="dropdown-item" href="#">Carl Sagan</a></li>
-                                    <li><a class="dropdown-item" href="#">Gabriel García M.</a></li>
-                                    <li><a class="dropdown-item" href="#">Mark Oliver Everett</a></li>
-                                    <li><a class="dropdown-item" href="#">Won-pyung Sohn</a></li>
-                                    <li><a class="dropdown-item" href="#">Natanael Méndez M.</a></li>
+                                <ul className="dropdown-menu">
+                                    <li><a className="dropdown-item" href="#">Alice Kellen</a></li>
+                                    <li><a className="dropdown-item" href="#">Carl Sagan</a></li>
+                                    <li><a className="dropdown-item" href="#">Gabriel García M.</a></li>
+                                    <li><a className="dropdown-item" href="#">Mark Oliver Everett</a></li>
+                                    <li><a className="dropdown-item" href="#">Won-pyung Sohn</a></li>
+                                    <li><a className="dropdown-item" href="#">Natanael Méndez M.</a></li>
                                 </ul>
                             </li>
                             <li className="nav-item">

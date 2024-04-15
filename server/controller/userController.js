@@ -18,6 +18,8 @@ const controller={
                 direccion:req.body.direccion,
                 telefono: req.body.telefono,
                 fechaNacimiento: req.body.fechaNacimiento,
+                departamento:req.body.departamento,
+                municipio:req.body.municipio,
                 passWord: req.body.passWord,
                 estado: "activo",
                 rol: "Usuario",
@@ -25,8 +27,8 @@ const controller={
             };
             for(x of users){
                 if(
-                    X.email===req.body.email || 
-                    X.identificacion ===req.body.identificacion
+                    x.email===req.body.email || 
+                    x.identificacion ===req.body.identificacion
                 ){
                     res.status(400).send("El email ya existe");
                     return;
@@ -50,9 +52,9 @@ const controller={
 
             for(x of users){
                 if(
-                    X.email===req.body.email &&
-                    X.passWord === req.body.passWord &&
-                    X.rol === req.body.rol
+                    x.email===req.body.email &&
+                    x.passWord === req.body.passWord &&
+                    x.rol === req.body.rol
                 ){
                     res.status(200).send("OK");
                     return;

@@ -90,9 +90,9 @@ const SignUp = () => {
         }
         setValues(newValues)
     }
-    const handleSubmit = (e) => {
+    const handleSubmit = async(e) => {
         e.preventDefault()
-        let validPassword = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[]#?!@$%^&*-).{8,}$/
+        let validPassword = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-.]).{8,}$/
         let validEmail = /^\w+([.-_+]?\w+)*@\w+([.-]?\w+)*(\.\w{2,10})+$/;
 
         if (values.identificacion.length < 5 || values.identificacion.length > 10 || values.identificacion.length === 0) {
@@ -120,11 +120,11 @@ const SignUp = () => {
             setFechaNacimientoError(true)
             return
         } 
-        else if (departamento.value === "0") {
+        else if (departamento.values === "-1") {
             setDepartamentoError(true)
             return
         }
-        else if (municipioError.value === "0") {
+        else if (municipioError.values === "-1") {
             setMunicipioError(true)
             return
         }else if (!validPassword.test(values.password)) {
@@ -137,13 +137,13 @@ const SignUp = () => {
             setPassComparacion(true)
             return
         }
-    }
-    fetch('http://localhost:3001/Sign-Up', {
+        await fetch('http://localhost:3001/Sign-Up', {
         method: 'POST',
         headers: { "Content-Type": "application/json", "Accept": 'application/json' },
         body: JSON.stringify(values)
     })
         .then(response => {
+           // console.log(response.status)
             if (response.status === 200) {
                 Swal.fire({
                     title: "Usuario creado con éxito",
@@ -152,10 +152,10 @@ const SignUp = () => {
                 form.current.reset()
                 window.location.hash = '/login'
             }
-            if (response.Status === 400) {
+            if (response.status === 400) {
                 Swal.fire({
                     title: "No fue posible crear el usuario porque ya existe el correo ingresado " + values.email,
-                    icon: "warning"
+                    icon: "error"
                 })
             }
         })
@@ -165,6 +165,8 @@ const SignUp = () => {
                 icon: "error"
             })
         })
+    }
+    
     return (
         <div>
             <Header />
@@ -210,8 +212,8 @@ const SignUp = () => {
                         </div>
                         <div className="mb-3 caja">
                             <label htmlFor="departamento" className="form-label">Departamento</label>
-                            <select class="form-select" aria-label="Default select example" name='departamento' id='departamento' onChange={handleChangeDepartamento} onClick={depError}>
-                                <option value="0" selected>Abrir el menú</option>
+                            <select defaultValue="0" className="form-select" aria-label="Default select example" name='departamento' id='departamento' onChange={handleChangeDepartamento} onClick={depError}>
+                                <option value="0">Abrir el menú</option>
                                 {Colombia.map((item,e)=>(
                                     <option key={e} value={e}>{item.departamento}</option>
                                 ))}
@@ -220,9 +222,9 @@ const SignUp = () => {
                         </div>
                         <div className="mb-3 caja">
                             <label htmlFor="municipio" className="form-label">Municipio</label>
-                            <select class="form-select" aria-label="Default select example" name='municipio' id='municipio' onChange={handleChangeMunicipio} onClick={munError}>
-                                <option value="0" selected>Abrir el menú</option>
-                                { Colombia[depIndex].ciudades.map((item,e)=>(
+                            <select defaultValue="" className="form-select" aria-label="Default select example" name='municipio' id='municipio' onChange={handleChangeMunicipio} onClick={munError}>
+                                <option value="0" >Abrir el menú</option>
+                                { depIndex > -1 && Colombia[depIndex].ciudades.map((item,e)=>(
                                     <option key={e} value={e}>{item}</option>
                                 ))}
                             </select>
@@ -241,7 +243,7 @@ const SignUp = () => {
                         </div>
                         <div className="form-check d-flex justify-content-center mb-5">
                             <input className="form-check-input me-2" type="checkbox" value="" id="form2Example3cg" />
-                            <label className="form-check-label" htmlFor="form2Example3g">
+                            <label className="form-check-label" >
                                 Acepta todos nuestros <a href="#!" className="fw-bold text-danger"><u>Terminos y condiciones</u></a>
                             </label>
                         </div>

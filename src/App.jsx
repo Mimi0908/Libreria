@@ -1,8 +1,9 @@
 import React from 'react';
 import {Routes, Route, HashRouter } from 'react-router-dom';
 import Inicio from './componentes/inicio';
-import Registro from './componentes/registro';
+
 import InicioSecion from './componentes/inicioSecion';
+import Registro from './componentes/registro';
 
 const App = () => {
     return (
