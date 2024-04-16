@@ -23,7 +23,7 @@
 .caja{
     text-align: justify;
     font-weight: bolder;
-    margin: 40px 100px;
+    margin: 40px 15%;
 }
 
 .caja:nth-child(7),.caja:nth-child(10), .caja:nth-child(11){
@@ -70,6 +70,35 @@
 .text-center{
     grid-column: span 2;
 }
+.boxInt{
+    display: flex;
+    justify-content: space-evenly;
+}
+.cajabtn .btnL{
+    width: 60%;
+}
+#linea{
+    height: 0.9rem;
+}
+.icon{
+    height: 1.6rem;
+}
+.caja-botones{
+    display: flex;
+    justify-content: center;
+}
+.btn-google{
+    width:40%;
+    padding:  10px 10px;
+}
+.btn-facebook{
+    width:40%;
+    padding:  10px 10px;
+}
+.btn-facebook p{
+    color: white;
+}
+
 @media screen and (min-width:800px) {
     .registro{
         width: 100%;

@@ -1,3 +1,17 @@
 [
-
+    {
+        "id": 1,
+        "identificacion": "1034293123",
+        "nombres": "Emily",
+        "apellidos": "Garcia",
+        "email": "emily@gmail.com",
+        "direccion": "calle 13 1210",
+        "telefono": "3205047609",
+        "fechaNacimiento": "2013-12-29",
+        "departamento": "Risaralda",
+        "municipio": "Santa Rosa de Cabal",
+        "estado": "activo",
+        "rol": "Usuario",
+        "fecha_creacion": "2024-04-16T01:18:34.330Z"
+    }
 ]
