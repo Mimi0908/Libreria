@@ -1,9 +1,7 @@
 import React, { useState, useRef } from 'react';
 
 import './login.css';
-import Header from '../header/Header';
 import Swal from 'sweetalert2'
-import Footer from '../footer/Footer';
 import { Link } from 'react-router-dom';
 import Colombia from './colombia'
 
@@ -175,7 +173,7 @@ const SignUp = () => {
 
     return (
         <div>
-            <Header />
+            
             <div className="bloque">
                 <div className="registro">
                     <h1>SIGN UP</h1>
@@ -260,7 +258,7 @@ const SignUp = () => {
                     </form>
                 </div>
             </div>
-            <Footer />
+            
         </div>
     );
 }

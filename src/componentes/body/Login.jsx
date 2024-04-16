@@ -1,15 +1,12 @@
 import React from 'react';
 import './login.css';
-import Header from '../header/Header';
-import Footer from '../footer/Footer';
 import iconGoogle from '../../../public/iconGoogle.png'
 import FacebookIcon from '@mui/icons-material/Facebook';
 import { Link } from 'react-router-dom';
 
 const Login = () => {
     return (
-        <div>
-            <Header />
+        <div>      
             <div className="bloque">
                 <div className="contenido">
                     <h1>LOGIN</h1>
@@ -42,7 +39,6 @@ const Login = () => {
                             <div className='border-bottom text-center' id='linea'>
                                 <span className='bg-white px-3'>or</span>
                             </div>
-
                         </div>
                         <div className='caja-botones'>
                             <div className="btn d-flex gap-2 justify-content-center border mt-3 shadow-sm btn-google">
@@ -57,7 +53,6 @@ const Login = () => {
                     </form>
                 </div>
             </div>
-            <Footer />
         </div>
     );
 }
