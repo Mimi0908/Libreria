@@ -1,10 +1,17 @@
-import React from 'react';
+import React, { useState, useRef } from 'react';
 import './login.css';
 import iconGoogle from '../../../public/iconGoogle.png'
 import FacebookIcon from '@mui/icons-material/Facebook';
 import { Link } from 'react-router-dom';
+import VisibilityIcon from '@mui/icons-material/Visibility';
+import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 
 const Login = () => {
+    const [showPassword, setShowPassword] = useState(false);
+
+    const togglePasswordVisibility = () => {
+        setShowPassword(!showPassword);
+    }
     return (
         <div>      
             <div className="bloque">
@@ -17,8 +24,13 @@ const Login = () => {
                             {/* <div id="emailHelp" className="form-text">We'll never share your email with anyone else.</div> */}
                         </div>
                         <div className="mb-3 caja">
-                            <label for="exampleInputPassword1" className="form-label">Contraseña</label>
-                            <input type="password" className="form-control" id="exampleInputPassword1" />
+                            <label htmlFor="password" className="form-label">Contraseña</label>
+                            <div className="input-group ">
+                                <input type={showPassword ? 'text' : 'password'} className='form-control '/>
+                                <span class="input-group-text" onClick={togglePasswordVisibility}>
+                                    {showPassword ? <VisibilityOffIcon /> : <VisibilityIcon />}
+                                </span>
+                            </div>
                         </div>
                         <div className="boxInt">
                             <div className="d-flex align-items-center gap-1">

@@ -3,9 +3,18 @@ import React, { useState, useRef } from 'react';
 import './login.css';
 import Swal from 'sweetalert2'
 import { Link } from 'react-router-dom';
-import Colombia from './colombia'
+import Colombia from './colombia';
+import VisibilityIcon from '@mui/icons-material/Visibility';
+import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 
 const SignUp = () => {
+
+    const [showPassword, setShowPassword] = useState(false);
+
+    const togglePasswordVisibility = () => {
+        setShowPassword(!showPassword);
+    }
+
     const [depIndex, setdepIndex] = useState(-1)
     const [munIndex, setmunIndex] = useState(-1)
     const [identificacionError, setIdentificacionError] = useState(false)
@@ -21,6 +30,7 @@ const SignUp = () => {
     const [passwordError, setPasswordError] = useState(false)
     const [passwordErrorRepeat, setPasswordErrorRepeat] = useState(false)
     const [passComparacion, setPassComparacion] = useState(false)
+    const [validationErrors, setValidationErrors] = useState([]);
     const form = useRef()
     function idError() {
         setIdentificacionError(false)
@@ -101,46 +111,49 @@ const SignUp = () => {
         let validPassword = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-.]).{8,}$/
         let validEmail = /^\w+([.-_+]?\w+)*@\w+([.-]?\w+)*(\.\w{2,10})+$/;
 
+
         if (values.identificacion.length < 5 || values.identificacion.length > 10 || values.identificacion.length === 0) {
             setIdentificacionError(true)
+            return
 
-        } if (values.nombres.length < 3 || values.nombres.length === 0) {
+        }else if (values.nombres.length < 3 || values.nombres.length === 0) {
             setNomError(true)
-
-        } if (values.apellidos.length < 3 || values.apellidos.length === 0) {
+            return
+        }else if (values.apellidos.length < 3 || values.apellidos.length === 0) {
             setApellidoError(true)
-
-        } if (values.email.length === 0) {
+            return
+        }else if (values.email.length === 0) {
             setEmailVacio(true)
-
-        } else if (!validEmail.test(values.email)) {
+            return
+        }else if (!validEmail.test(values.email)) {
             setEmailError(true)
-
-        } if (values.direccion.length < 15) {
+            return
+        }else if (values.direccion.length < 15) {
             setDireccionError(true)
-
-        } if (values.telefono.length < 10 || values.telefono.length > 10) {
+            return
+        }else if (values.telefono.length < 10 || values.telefono.length > 10) {
             setTelefonoError(true)
-
-        } if (values.fechaNacimiento === "") {
+            return
+        }else if (values.fechaNacimiento === "") {
             setFechaNacimientoError(true)
-
-        } if (departamento.values === "-1") {
+            return
+        }else if (departamento.values === "-1") {
             setDepartamentoError(true)
-
-        } if (municipioError.values === "-1") {
+            return
+        }else if (municipioError.values === "-1") {
             setMunicipioError(true)
-
-        } if (!validPassword.test(values.password)) {
+            return
+        }else if (!validPassword.test(values.password)) {
             setPasswordError(true)
-
-        } if (values.passRepeat.length === 0) {
+            return
+        }else if (values.passRepeat.length === 0) {
             setPasswordErrorRepeat(true)
-
-        } else if (values.password !== values.passRepeat) {
+            return
+        }else if (values.password !== values.passRepeat) {
             setPassComparacion(true)
-
+            return
         }
+
         await fetch('http://localhost:3001/Sign-Up', {
             method: 'POST',
             headers: { "Content-Type": "application/json", "Accept": 'application/json' },
@@ -173,7 +186,7 @@ const SignUp = () => {
 
     return (
         <div>
-            
+
             <div className="bloque">
                 <div className="registro">
                     <h1>SIGN UP</h1>
@@ -236,12 +249,22 @@ const SignUp = () => {
                         </div>
                         <div className="mb-3 caja">
                             <label htmlFor="password" className="form-label">Contraseña</label>
-                            <input type="password" className="form-control" name="password" id="password" onChange={handleChange} onClick={passError} />
+                            <div className="input-group ">
+                                <input type={showPassword ? 'text' : 'password'} className='form-control ' name="password" id="password" onChange={handleChange} onClick={passError} />
+                                <span class="input-group-text" onClick={togglePasswordVisibility}>
+                                    {showPassword ? <VisibilityOffIcon /> : <VisibilityIcon />}
+                                </span>
+                            </div>
                             {passwordError ? <p className='text-danger'>La contraseña no cumple con los requisitos mínimos solicitados(Mínimo 8 caracteres de longitud. Almenos una letra mayúscula. Almenos una letra minúscula. Almenos un número. Almenos un caracter especial).</p> : ""}
                         </div>
                         <div className="mb-3 caja">
                             <label htmlFor="passRepeat" className="form-label">Confirmar contraseña</label>
-                            <input type="password" className="form-control" name="passRepeat" id="passRepeat" onChange={handleChange} onClick={passRepeat} />
+                            <div className="input-group ">
+                                <input type={showPassword ? 'text' : 'password'} className="form-control" name="passRepeat" id="passRepeat" onChange={handleChange} onClick={passRepeat} />
+                                <span class="input-group-text" onClick={togglePasswordVisibility}>
+                                    {showPassword ? <VisibilityOffIcon /> : <VisibilityIcon />}
+                                </span>
+                            </div>
                             {passComparacion ? <p className='text-danger'>Las contraseñas ingresadas no coinciden</p> : ""}
                             {passwordErrorRepeat ? <p className='text-danger'>Este campo no puede quedar vacío.</p> : ""}
                         </div>
@@ -257,9 +280,9 @@ const SignUp = () => {
                         <p className="text-center text-muted mt-5 mb-0">Tienes una cuenta? <Link to='/login'><a href="#!" className="fw-bold text-danger"><u>Login here</u></a></Link></p>
                     </form>
                 </div>
-            </div>
-            
-        </div>
+            </div >
+
+        </div >
     );
 }
 
