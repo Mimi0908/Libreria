@@ -20,7 +20,7 @@ const controller={
                 fechaNacimiento: req.body.fechaNacimiento,
                 departamento:req.body.departamento,
                 municipio:req.body.municipio,
-                passWord: req.body.passWord,
+                passWord: req.body.password,
                 estado: "activo",
                 rol: "Usuario",
                 fecha_creacion: new Date(),
@@ -47,14 +47,13 @@ const controller={
     },
     login: async function (req,res){
         try{
-            const usersData= await fs.readFile(userFilePath, "utf-8");
-            const users = JSON.parse(usersData);
+            const usersData=await fs.readFile(userFilePath, 'utf-8');
+            const users =JSON.parse(usersData);
 
             for(x of users){
                 if(
                     x.email===req.body.email &&
-                    x.passWord === req.body.passWord &&
-                    x.rol === req.body.rol
+                    x.password === req.body.passWord
                 ){
                     res.status(200).send("OK");
                     return;

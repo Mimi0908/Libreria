@@ -1,17 +1,18 @@
 [
     {
         "id": 1,
-        "identificacion": "1034293123",
-        "nombres": "Emily",
-        "apellidos": "Garcia",
-        "email": "emily@gmail.com",
-        "direccion": "calle 13 1210",
-        "telefono": "3205047609",
-        "fechaNacimiento": "2013-12-29",
-        "departamento": "Risaralda",
-        "municipio": "Santa Rosa de Cabal",
+        "identificacion": "123456789",
+        "nombres": "coni",
+        "apellidos": "montes",
+        "email": "q1@gmail.com",
+        "direccion": "Calle 13 centro 1210",
+        "telefono": "3205047610",
+        "fechaNacimiento": "2024-04-01",
+        "departamento": "Cundinamarca",
+        "municipio": "Caparrapí",
+        "passWord": "Emily4567.",
         "estado": "activo",
         "rol": "Usuario",
-        "fecha_creacion": "2024-04-16T01:18:34.330Z"
+        "fecha_creacion": "2024-04-22T21:35:19.207Z"
     }
 ]

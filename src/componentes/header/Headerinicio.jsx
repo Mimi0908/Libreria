@@ -20,7 +20,7 @@ const Header = () => {
                     </button>
                     <div className="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-                            <Link to='/'>
+                            <Link to='/Sesion'>
                                 <li className="nav-item">
                                     <a className="nav-link" href="#"><HomeIcon className='icono' />Home</a>
                                 </li>
@@ -56,20 +56,6 @@ const Header = () => {
                             <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
                             <button className="btn btn-danger" type="submit">Search</button>
                         </form>
-                        <div className="collapse navbar-collapse" id="navbarSupportedContent">
-                            <ul className="navbar-nav nav2 me-auto mb-2 mb-lg-0 ">
-                                <Link to='/Sign-Up'>
-                                    <li className="nav-item">
-                                        <a className="btn btn-outline-danger" href="#"><AssignmentIndIcon className='icono' />Sign Up</a>
-                                    </li>
-                                </Link>
-                                <Link to='/Login'>
-                                    <li className="nav-item">
-                                        <a className="btn btn-danger boton" href="#"><LoginIcon className='icono' />Login</a>
-                                    </li>
-                                </Link>
-                            </ul>
-                        </div>
                     </div>
                 </div>
             </nav>
