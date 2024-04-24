@@ -83,11 +83,11 @@ const Login = () => {
             icon:"error"
         }),
         window.location.hash='/Login'  )
-        // useEffect(()=>{
-        //     if(cookies.get('email')){
-        //         // window.location.hash='/sesion'
-        //     }
-        // })
+        useEffect(()=>{
+            if(cookies.get('email')){
+                window.location.hash='/Sesion'
+            }
+        })
     }
     return (
         <div>      

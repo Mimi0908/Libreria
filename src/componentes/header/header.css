@@ -15,9 +15,16 @@
 .nav-item{
     margin: 0px 6px 0px 6px;
     height: 100%;
+    list-style: none;
+}
+.dropdown-item, .nav-link{
+    cursor: pointer;
 }
 .navbar-nav .nav-item.dropdown:hover .dropdown-menu {
     display: block;
+}
+.navbar-navIngresado{
+    width: 40%;
 }
 .dropdown-menu li {
     padding: 5px 0px;

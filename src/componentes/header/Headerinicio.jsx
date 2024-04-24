@@ -1,15 +1,31 @@
 import React from 'react';
+import Swal from 'sweetalert2'
 import './header.css';
 import Logo from '/logo.png';
 import HomeIcon from '@mui/icons-material/Home';
 import LibraryBooksIcon from '@mui/icons-material/LibraryBooks';
 import HelpIcon from '@mui/icons-material/Help';
-import AssignmentIndIcon from '@mui/icons-material/AssignmentInd';
-import LoginIcon from '@mui/icons-material/Login';
+import FaceIcon from '@mui/icons-material/Face';
 import PersonIcon from '@mui/icons-material/Person';
+import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 import { Link } from 'react-router-dom';
 
 const Header = () => {
+    function cerrar() {
+        Swal.fire({
+            title: "¿Deseas cerrar sesión?",
+            icon: "question",
+            iconHtml: "?",
+            confirmButtonText: "Cerrar sesión",
+            cancelButtonText: "Cancelar",
+            showCancelButton: true,
+            showCloseButton: true
+        }).then((result) => {
+            if (result.isConfirmed) {
+                window.location.hash = '/'
+            }
+        });
+    }
     return (
         <div className='contenedor'>
             <nav className="navbar navbar-expand-lg">
@@ -19,35 +35,35 @@ const Header = () => {
                         <span className="navbar-toggler-icon"></span>
                     </button>
                     <div className="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+                        <ul className="navbar-nav me-auto mb-2 mb-lg-0 navbar-navIngresado">
                             <Link to='/Sesion'>
                                 <li className="nav-item">
-                                    <a className="nav-link" href="#"><HomeIcon className='icono' />Home</a>
+                                    <a className="nav-link" ><HomeIcon className='icono' />Home</a>
                                 </li>
                             </Link>
                             <li className="nav-item dropdown">
-                                <a className="nav-link" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <a className="nav-link" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                     <LibraryBooksIcon className='icono' />Categoria
                                 </a>
                                 <ul className="dropdown-menu">
-                                    <li><a className="dropdown-item" href="#">Literatura clásica</a></li>
-                                    <li><a className="dropdown-item" href="#">Romance</a></li>
-                                    <li><a className="dropdown-item" href="#">Thriller</a></li>
+                                    <li><a className="dropdown-item" >Literatura clásica</a></li>
+                                    <li><a className="dropdown-item" >Romance</a></li>
+                                    <li><a className="dropdown-item" >Thriller</a></li>
                                 </ul>
                             </li>
                             <li className="nav-item dropdown">
-                                <a className="nav-link" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><PersonIcon className='icono' />Autores</a>
+                                <a className="nav-link" role="button" data-bs-toggle="dropdown" aria-expanded="false"><PersonIcon className='icono' />Autores</a>
                                 <ul className="dropdown-menu">
-                                    <li><a className="dropdown-item" href="#">Alice Kellen</a></li>
-                                    <li><a className="dropdown-item" href="#">Carl Sagan</a></li>
-                                    <li><a className="dropdown-item" href="#">Gabriel García M.</a></li>
-                                    <li><a className="dropdown-item" href="#">Mark Oliver Everett</a></li>
-                                    <li><a className="dropdown-item" href="#">Won-pyung Sohn</a></li>
-                                    <li><a className="dropdown-item" href="#">Natanael Méndez M.</a></li>
+                                    <li><a className="dropdown-item" >Alice Kellen</a></li>
+                                    <li><a className="dropdown-item" >Carl Sagan</a></li>
+                                    <li><a className="dropdown-item" >Gabriel García M.</a></li>
+                                    <li><a className="dropdown-item" >Mark Oliver Everett</a></li>
+                                    <li><a className="dropdown-item" >Won-pyung Sohn</a></li>
+                                    <li><a className="dropdown-item" >Natanael Méndez M.</a></li>
                                 </ul>
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link" href="#"><HelpIcon className='icono' />Q&A</a>
+                                <a className="nav-link"><HelpIcon className='icono' />Q&A</a>
                             </li>
 
                         </ul>
@@ -56,6 +72,20 @@ const Header = () => {
                             <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
                             <button className="btn btn-danger" type="submit">Search</button>
                         </form>
+                        <div className="collapse navbar-collapse" id="navbarSupportedContent">
+                            <li className="nav-item">
+                                <a className="nav-link"><ShoppingCartOutlinedIcon sx={{ fontSize: 35 }} /></a>
+                            </li>
+                            <li className="nav-item dropstart">
+                                <a className="nav-link" role="button" data-bs-toggle="dropdown" aria-expanded="false"><FaceIcon sx={{ fontSize: 50 }} className='text-danger' /></a>
+                                <ul className="dropdown-menu menuUsuario">
+                                    <p>Bienvenido</p>
+                                    <hr></hr>
+                                    <li><a className="dropdown-item">Configuración</a></li>
+                                    <li><a className="dropdown-item" onClick={cerrar}>Cerrar sesión</a></li>
+                                </ul>
+                            </li>
+                        </div>
                     </div>
                 </div>
             </nav>

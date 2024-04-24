@@ -22,32 +22,32 @@ const Header = () => {
                         <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                             <Link to='/'>
                                 <li className="nav-item">
-                                    <a className="nav-link" href="#"><HomeIcon className='icono' />Home</a>
+                                    <a className="nav-link"><HomeIcon className='icono' />Home</a>
                                 </li>
                             </Link>
                             <li className="nav-item dropdown">
-                                <a className="nav-link" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <a className="nav-link" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                     <LibraryBooksIcon className='icono' />Categoria
                                 </a>
                                 <ul className="dropdown-menu">
-                                    <li><a className="dropdown-item" href="#">Literatura clásica</a></li>
-                                    <li><a className="dropdown-item" href="#">Romance</a></li>
-                                    <li><a className="dropdown-item" href="#">Thriller</a></li>
+                                    <li><a className="dropdown-item">Literatura clásica</a></li>
+                                    <li><a className="dropdown-item">Romance</a></li>
+                                    <li><a className="dropdown-item">Thriller</a></li>
                                 </ul>
                             </li>
                             <li className="nav-item dropdown">
-                                <a className="nav-link" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><PersonIcon className='icono' />Autores</a>
+                                <a className="nav-link" role="button" data-bs-toggle="dropdown" aria-expanded="false"><PersonIcon className='icono' />Autores</a>
                                 <ul className="dropdown-menu">
-                                    <li><a className="dropdown-item" href="#">Alice Kellen</a></li>
-                                    <li><a className="dropdown-item" href="#">Carl Sagan</a></li>
-                                    <li><a className="dropdown-item" href="#">Gabriel García M.</a></li>
-                                    <li><a className="dropdown-item" href="#">Mark Oliver Everett</a></li>
-                                    <li><a className="dropdown-item" href="#">Won-pyung Sohn</a></li>
-                                    <li><a className="dropdown-item" href="#">Natanael Méndez M.</a></li>
+                                    <li><a className="dropdown-item">Alice Kellen</a></li>
+                                    <li><a className="dropdown-item">Carl Sagan</a></li>
+                                    <li><a className="dropdown-item">Gabriel García M.</a></li>
+                                    <li><a className="dropdown-item">Mark Oliver Everett</a></li>
+                                    <li><a className="dropdown-item">Won-pyung Sohn</a></li>
+                                    <li><a className="dropdown-item">Natanael Méndez M.</a></li>
                                 </ul>
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link" href="#"><HelpIcon className='icono' />Q&A</a>
+                                <a className="nav-link"><HelpIcon className='icono' />Q&A</a>
                             </li>
 
                         </ul>
@@ -60,12 +60,12 @@ const Header = () => {
                             <ul className="navbar-nav nav2 me-auto mb-2 mb-lg-0 ">
                                 <Link to='/Sign-Up'>
                                     <li className="nav-item">
-                                        <a className="btn btn-outline-danger" href="#"><AssignmentIndIcon className='icono' />Sign Up</a>
+                                        <a className="btn btn-outline-danger"><AssignmentIndIcon className='icono' />Sign Up</a>
                                     </li>
                                 </Link>
                                 <Link to='/Login'>
                                     <li className="nav-item">
-                                        <a className="btn btn-danger boton" href="#"><LoginIcon className='icono' />Login</a>
+                                        <a className="btn btn-danger boton"><LoginIcon className='icono' />Login</a>
                                     </li>
                                 </Link>
                             </ul>
