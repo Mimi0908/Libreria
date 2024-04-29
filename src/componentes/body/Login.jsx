@@ -6,10 +6,8 @@ import FacebookIcon from '@mui/icons-material/Facebook';
 import { Link } from 'react-router-dom';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
-import Cookies from 'universal-cookie';
 
 const Login = () => {
-    const cookies = new Cookies();
     const [errorEmail, setErrorEmail]= useState(false);
     const [errorPassword, setErrorPassword]=useState(false);
     const [showPassword, setShowPassword] = useState(false);
@@ -62,11 +60,6 @@ const Login = () => {
         })
         .then(response=>{
             if(response.status === 200){
-                cookies.set('email', values.email,{
-                    secure:true,
-                    sameSite: 'None',
-                    path:"/"
-                })
                 window.location.hash='/Sesion'
             }
             else{
@@ -83,11 +76,6 @@ const Login = () => {
             icon:"error"
         }),
         window.location.hash='/Login'  )
-        useEffect(()=>{
-            if(cookies.get('email')){
-                window.location.hash='/Sesion'
-            }
-        })
     }
     return (
         <div>      

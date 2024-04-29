@@ -17,9 +17,10 @@
     "boostrap": "^2.0.0",
     "bootstrap-icons": "^1.11.3",
     "cors": "^2.8.5",
+    "js-cookie": "^3.0.5",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "sweetalert2": "^11.10.7",
+    "sweetalert2": "^11.10.8",
     "universal-cookie": "^7.1.4"
   },
   "devDependencies": {
@@ -31,6 +32,6 @@
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.5",
     "react-router-dom": "^6.22.3",
-    "vite": "^5.1.6"
+    "vite": "^5.2.10"
   }
 }

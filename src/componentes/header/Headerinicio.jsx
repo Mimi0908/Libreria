@@ -1,5 +1,6 @@
 import React from 'react';
 import Swal from 'sweetalert2'
+import Cookies from 'js-cookie';
 import './header.css';
 import Logo from '/logo.png';
 import HomeIcon from '@mui/icons-material/Home';
@@ -26,6 +27,7 @@ const Header = () => {
             }
         });
     }
+    const user = Cookies.get('email');
     return (
         <div className='contenedor'>
             <nav className="navbar navbar-expand-lg">
@@ -79,7 +81,7 @@ const Header = () => {
                             <li className="nav-item dropstart">
                                 <a className="nav-link" role="button" data-bs-toggle="dropdown" aria-expanded="false"><FaceIcon sx={{ fontSize: 50 }} className='text-danger' /></a>
                                 <ul className="dropdown-menu menuUsuario">
-                                    <p>Bienvenido</p>
+                                    <p>Bienvenido {user}</p>
                                     <hr></hr>
                                     <li><a className="dropdown-item">Configuración</a></li>
                                     <li><a className="dropdown-item" onClick={cerrar}>Cerrar sesión</a></li>

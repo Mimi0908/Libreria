@@ -29,6 +29,9 @@
 .dropdown-menu li {
     padding: 5px 0px;
 } 
+.menuUsuario p{
+    padding: 5px 20px;
+}
 span{
     width: 25%;
 }
