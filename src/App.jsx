@@ -7,6 +7,9 @@ import Registro from './componentes/registro';
 
 import Sesion from './componentes/sesion';
 
+import Categorias from './componentes/categorias';
+import CategoriasUsuario from './componentes/categoriasUsuario';
+
 const App = () => {
     return (
        <HashRouter>
@@ -15,6 +18,8 @@ const App = () => {
             <Route exact path='/Sign-Up' element={<Registro/>}/>
             <Route exact path='/Login' element={<InicioSecion/>}/>
             <Route exact path='/Sesion' element={<Sesion/>}/>
+            <Route exact path='/Categorias' element={<Categorias/>}/>
+            <Route exact path='/CategoriasUsuario' element={<CategoriasUsuario/>}/>
         </Routes>
        </HashRouter>
     );

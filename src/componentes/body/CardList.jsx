@@ -4,11 +4,17 @@ import data from './data'
 import banner1 from'./banner1.png'
 
 
-function CardList() {
+function CardList({ categoriaSeleccionada }) {
    const [paginaActual, setPaginaActual] = useState(1);
    const librosPorPagina = 16;
    const indicePrimerLibro = (paginaActual - 1) * librosPorPagina;
-   const librosPaginaActual = data.slice(indicePrimerLibro, indicePrimerLibro + librosPorPagina);
+
+   let librosFiltrados = data;
+   if (categoriaSeleccionada) {
+       librosFiltrados = data.filter(libro => libro.categoria === categoriaSeleccionada);
+   }
+
+   const librosPaginaActual = librosFiltrados.slice(indicePrimerLibro, indicePrimerLibro + librosPorPagina);
 
    const cambiarPagina = (nuevaPagina) => {
        setPaginaActual(nuevaPagina);

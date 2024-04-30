@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import './login.css';
 import Swal from 'sweetalert2'
 import iconGoogle from '../../../public/iconGoogle.png'
@@ -6,8 +6,10 @@ import FacebookIcon from '@mui/icons-material/Facebook';
 import { Link } from 'react-router-dom';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
+import Cookies from 'universal-cookie';
 
 const Login = () => {
+    const cookie= new Cookies();
     const [errorEmail, setErrorEmail]= useState(false);
     const [errorPassword, setErrorPassword]=useState(false);
     const [showPassword, setShowPassword] = useState(false);
@@ -58,17 +60,27 @@ const Login = () => {
             headers: { "Content-Type": "application/json", "Accept": 'application/json' },
             body: JSON.stringify(values)
         })
-        .then(response=>{
-            if(response.status === 200){
-                window.location.hash='/Sesion'
-            }
-            else{
-                console.log("sdfd", response.status)
+        .then(response=>response.json())
+        .then(res=>{
+            if(res.title=="error"){
                 Swal.fire({
                     title:"Las credenciales ingresadas no son correctas",
                     icon:"error"
                 })
                 window.location.hash='/Login'
+                return
+            }
+            else{
+                cookie.set('name', res.nombres,{
+                    secure: true, sameSite: 'None', path: '/' 
+                })
+                cookie.set('lastname', res.apellidos,{
+                    secure: true, sameSite: 'None', path: '/' 
+                })
+                cookie.set('email', res.email,{
+                    secure: true, sameSite: 'None', path: '/' 
+                })
+                window.location.hash='/Sesion'
             }
         })
         .catch(()=>Swal.fire({

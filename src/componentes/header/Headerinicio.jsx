@@ -12,6 +12,10 @@ import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 import { Link } from 'react-router-dom';
 
 const Header = () => {
+    const handleClickCategoria = (categoria) => {
+        window.location.reload(); 
+        localStorage.setItem('categoriaSeleccionada', categoria); 
+    };
     function cerrar() {
         Swal.fire({
             title: "¿Deseas cerrar sesión?",
@@ -27,7 +31,6 @@ const Header = () => {
             }
         });
     }
-    const user = Cookies.get('email');
     return (
         <div className='contenedor'>
             <nav className="navbar navbar-expand-lg">
@@ -48,9 +51,17 @@ const Header = () => {
                                     <LibraryBooksIcon className='icono' />Categoria
                                 </a>
                                 <ul className="dropdown-menu">
-                                    <li><a className="dropdown-item" >Literatura clásica</a></li>
-                                    <li><a className="dropdown-item" >Romance</a></li>
-                                    <li><a className="dropdown-item" >Thriller</a></li>
+                                    <Link to='/CategoriasUsuario'><li><button className="dropdown-item" onClick={() => handleClickCategoria("Ficción")}>Ficción</button></li></Link>
+                                    <Link to='/CategoriasUsuario'><li><button className="dropdown-item" onClick={() => handleClickCategoria("Ciencia Ficción")}>Ciencia Ficción</button></li></Link>
+                                    <Link to='/CategoriasUsuario'><li><button className="dropdown-item" onClick={() => handleClickCategoria("Drama")}>Drama</button></li></Link>
+                                    <Link to='/CategoriasUsuario'><li><button className="dropdown-item" onClick={() => handleClickCategoria("Romance")}>Romance</button></li></Link>
+                                    <Link to='/CategoriasUsuario'><li><button className="dropdown-item" onClick={() => handleClickCategoria("No Ficción")}>No Ficción</button></li></Link>
+                                    <Link to='/CategoriasUsuario'><li><button className="dropdown-item" onClick={() => handleClickCategoria("Clásicos")}>Clásicos</button></li></Link>
+                                    <Link to='/CategoriasUsuario'><li><button className="dropdown-item" onClick={() => handleClickCategoria("Misterio")}>Misterio</button></li></Link>
+                                    <Link to='/CategoriasUsuario'><li><button className="dropdown-item" onClick={() => handleClickCategoria("Fantasía")}>Fantasía</button></li></Link>
+                                    <Link to='/CategoriasUsuario'><li><button className="dropdown-item" onClick={() => handleClickCategoria("Terror")}>Terror</button></li></Link>
+                                    <Link to='/CategoriasUsuario'><li><button className="dropdown-item" onClick={() => handleClickCategoria("Fábula")}>Fábula</button></li></Link>
+                                    <Link to='/CategoriasUsuario'><li><button className="dropdown-item" onClick={() => handleClickCategoria("Histórica")}>Histórica</button></li></Link>
                                 </ul>
                             </li>
                             <li className="nav-item dropdown">
@@ -81,7 +92,7 @@ const Header = () => {
                             <li className="nav-item dropstart">
                                 <a className="nav-link" role="button" data-bs-toggle="dropdown" aria-expanded="false"><FaceIcon sx={{ fontSize: 50 }} className='text-danger' /></a>
                                 <ul className="dropdown-menu menuUsuario">
-                                    <p>Bienvenido {user}</p>
+                                    <p className='bienvenida'>Bienvenid@ <strong>{Cookies.get('name')+" "+Cookies.get('lastname')}</strong><br></br> <span className='text-secondary correo'>{Cookies.get('email')}</span></p>
                                     <hr></hr>
                                     <li><a className="dropdown-item">Configuración</a></li>
                                     <li><a className="dropdown-item" onClick={cerrar}>Cerrar sesión</a></li>
