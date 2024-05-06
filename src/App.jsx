@@ -10,6 +10,9 @@ import Sesion from './componentes/sesion';
 import Categorias from './componentes/categorias';
 import CategoriasUsuario from './componentes/categoriasUsuario';
 
+import Autores from './componentes/autores';
+import AutoresUsuario from './componentes/autoresUsuario';
+
 const App = () => {
     return (
        <HashRouter>
@@ -20,6 +23,8 @@ const App = () => {
             <Route exact path='/Sesion' element={<Sesion/>}/>
             <Route exact path='/Categorias' element={<Categorias/>}/>
             <Route exact path='/CategoriasUsuario' element={<CategoriasUsuario/>}/>
+            <Route exact path='/Autores' element={<Autores/>}/>
+            <Route exact path='/AutoresUsuario' element={<AutoresUsuario/>}/>
         </Routes>
        </HashRouter>
     );

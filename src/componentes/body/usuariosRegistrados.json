@@ -14,5 +14,21 @@
         "estado": "activo",
         "rol": "Usuario",
         "fecha_creacion": "2024-04-22T21:35:19.207Z"
+    },
+    {
+        "id": 2,
+        "identificacion": "987654321",
+        "nombres": "Emily",
+        "apellidos": "Montes",
+        "email": "q@gmail.com",
+        "direccion": "calle 15 bis a 34-67",
+        "telefono": "3156789430",
+        "fechaNacimiento": "2010-05-27",
+        "departamento": "Antioquia",
+        "municipio": "Anzá",
+        "passWord": "Salmira#6789",
+        "estado": "activo",
+        "rol": "Usuario",
+        "fecha_creacion": "2024-05-06T18:21:26.610Z"
     }
 ]

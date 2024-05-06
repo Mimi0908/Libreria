@@ -12,9 +12,6 @@ const categoriasUsuario=()=> {
             setCategoriaSeleccionada(categoriaGuardada);
         }
     }, []);
-    const reiniciarCategoria = () => {
-        setCategoriaSeleccionada(null);
-    };
     return (
         <div>
             <Header/>

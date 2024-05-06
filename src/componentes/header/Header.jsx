@@ -14,6 +14,10 @@ const Header = () => {
         window.location.reload(); 
         localStorage.setItem('categoriaSeleccionada', categoria); 
     };
+    const handleClickAutores = (autor) => {
+        window.location.reload(); 
+        localStorage.setItem('autorSeleccionada', autor); 
+    };
     return (
         <div className='contenedor'>
             <nav className="navbar navbar-expand-lg">
@@ -50,12 +54,12 @@ const Header = () => {
                             <li className="nav-item dropdown">
                                 <a className="nav-link" role="button" data-bs-toggle="dropdown" aria-expanded="false"><PersonIcon className='icono' />Autores</a>
                                 <ul className="dropdown-menu">
-                                    <li><a className="dropdown-item">Alice Kellen</a></li>
-                                    <li><a className="dropdown-item">Carl Sagan</a></li>
-                                    <li><a className="dropdown-item">Gabriel García M.</a></li>
-                                    <li><a className="dropdown-item">Mark Oliver Everett</a></li>
-                                    <li><a className="dropdown-item">Won-pyung Sohn</a></li>
-                                    <li><a className="dropdown-item">Natanael Méndez M.</a></li>
+                                    <Link to='/Autores'><li><a className="dropdown-item" onClick={()=>handleClickAutores("Alice Kellen")}>Alice Kellen</a></li></Link>
+                                    <Link to='/Autores'><li><a className="dropdown-item" onClick={()=>handleClickAutores("Carl Sagan")}>Carl Sagan</a></li></Link> 
+                                    <Link to='/Autores'><li><a className="dropdown-item" onClick={()=>handleClickAutores("Gabriel García Márquez")}>Gabriel García M.</a></li></Link>
+                                    <Link to='/Autores'><li><a className="dropdown-item" onClick={()=>handleClickAutores("Mark Oliver Everett")}>Mark Oliver Everett</a></li></Link>
+                                    <Link to='/Autores'><li><a className="dropdown-item" onClick={()=>handleClickAutores("Won-pyung Sohn")}>Won-pyung Sohn</a></li></Link>
+                                    <Link to='/Autores'><li><a className="dropdown-item" onClick={()=>handleClickAutores("Natanael Méndez Matos")}>Natanael Méndez M.</a></li></Link>
                                 </ul>
                             </li>
                             <li className="nav-item">
