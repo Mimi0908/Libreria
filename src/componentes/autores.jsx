@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Header from './header/Header';
 import CardList2 from './body/CardList2';
 import Footer from './footer/Footer';

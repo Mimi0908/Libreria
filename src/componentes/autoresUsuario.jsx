@@ -1,21 +1,21 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Header from './header/Headerinicio';
 import CardList2 from './body/CardList2';
 import Footer from './footer/Footer';
 
 const AutoresUsuario = () => {
-    const [autorSeleccionada, setautorSeleccionada] = useState(null);
+    const [autorSeleccionado, setautorSeleccionado] = useState(null);
 
     useEffect(() => {
-        const autorGuardada = localStorage.getItem('autorSeleccionada');
-        if (autorGuardada) {
-            setautorSeleccionada(autorGuardada);
+        const autorGuardado = localStorage.getItem('autorSeleccionado');
+        if (autorGuardado) {
+            setautorSeleccionado(autorGuardado);
         }
     }, []);
     return (
         <div>
             <Header/>
-            <CardList2 autorSeleccionada={autorSeleccionada} />
+            <CardList2 autorSeleccionada={autorSeleccionado} />
             <Footer/>
         </div>
     );
