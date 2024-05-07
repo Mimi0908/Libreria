@@ -3,6 +3,7 @@ import Header from './header/Header';
 import CardList2 from './body/CardList2';
 import Footer from './footer/Footer';
 
+
 const Autores = () => {
     const [autorSeleccionada, setautorSeleccionada] = useState(null);
 
@@ -16,7 +17,7 @@ const Autores = () => {
         <div>
             <Header/>
             <CardList2 autorSeleccionada={autorSeleccionada} />
-            <Footer/>
+            <Footer/> 
         </div>
     );
 }

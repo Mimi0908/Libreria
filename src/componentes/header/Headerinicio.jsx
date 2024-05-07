@@ -77,6 +77,15 @@ const Header = () => {
                                     <Link to='/AutoresUsuario'><li><a className="dropdown-item" onClick={()=>handleClickAutores("Mark Oliver Everett")}>Mark Oliver Everett</a></li></Link>
                                     <Link to='/AutoresUsuario'><li><a className="dropdown-item" onClick={()=>handleClickAutores("Won-pyung Sohn")}>Won-pyung Sohn</a></li></Link>
                                     <Link to='/AutoresUsuario'><li><a className="dropdown-item" onClick={()=>handleClickAutores("Natanael Méndez Matos")}>Natanael Méndez M.</a></li></Link>
+                                    <Link to='/AutoresUsuario'><li><a className="dropdown-item" onClick={()=>handleClickAutores("Victor Hugo")}>Victor Hugo</a></li></Link>
+                                    <Link to='/AutoresUsuario'><li><a className="dropdown-item" onClick={()=>handleClickAutores("Don Miguel Ruiz")}>Don Miguel Ruiz</a></li></Link>
+                                    <Link to='/AutoresUsuario'><li><a className="dropdown-item" onClick={()=>handleClickAutores("Antonio Gude")}>Antonio Gude</a></li></Link>
+                                    <Link to='/AutoresUsuario'><li><a className="dropdown-item" onClick={()=>handleClickAutores("Sigman Mariano")}>Sigman Mariano</a></li></Link>
+                                    <Link to='/AutoresUsuario'><li><a className="dropdown-item" onClick={()=>handleClickAutores("Mario Mendoza")}>Mario Mendoza</a></li></Link>
+                                    <Link to='/AutoresUsuario'><li><a className="dropdown-item" onClick={()=>handleClickAutores("Rick Riordan")}>Rick Riordan</a></li></Link>
+                                    <Link to='/AutoresUsuario'><li><a className="dropdown-item" onClick={()=>handleClickAutores("Stephen Kin")}>Stephen Kin</a></li></Link>
+                                    <Link to='/AutoresUsuario'><li><a className="dropdown-item" onClick={()=>handleClickAutores("J.K. Rowlin")}>J.K. Rowlin</a></li></Link>
+                                    <Link to='/AutoresUsuario'><li><a className="dropdown-item" onClick={()=>handleClickAutores("Isabel Allende")}>Isabel Allende</a></li></Link>
                                 </ul>
                             </li>
                             <li className="nav-item">

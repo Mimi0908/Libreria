@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Header from './header/Headerinicio';
 import CardList from './body/CardList';
 import Footer from './footer/Footer';
+import SesionExpired from './sesionExpired/sesionExpired';
 
 const categoriasUsuario=()=> {
     const [categoriaSeleccionada, setCategoriaSeleccionada] = useState(null);
@@ -17,6 +18,7 @@ const categoriasUsuario=()=> {
             <Header/>
             <CardList categoriaSeleccionada={categoriaSeleccionada} />
             <Footer/>
+            <SesionExpired/>
         </div>
     );
 }

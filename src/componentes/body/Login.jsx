@@ -7,20 +7,21 @@ import { Link } from 'react-router-dom';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 import Cookies from 'universal-cookie';
+import OAuthGoogle from '../oAuthGoogle/oAuthGoogle';
 
 const Login = () => {
-    const cookie= new Cookies();
-    const [errorEmail, setErrorEmail]= useState(false);
-    const [errorPassword, setErrorPassword]=useState(false);
+    const cookie = new Cookies();
+    const [errorEmail, setErrorEmail] = useState(false);
+    const [errorPassword, setErrorPassword] = useState(false);
     const [showPassword, setShowPassword] = useState(false);
 
     const togglePasswordVisibility = () => {
         setShowPassword(!showPassword);
     }
 
-    const [values, setValues]=useState({
-        email:"",
-        password:"",
+    const [values, setValues] = useState({
+        email: "",
+        password: "",
     })
 
     const handleChange = (e) => {
@@ -31,73 +32,73 @@ const Login = () => {
         }
         setValues(newValues)
     }
-    const handleClickEmail=()=>{
+    const handleClickEmail = () => {
         setErrorEmail(false);
     }
 
-    const handleClickPassword = (e) =>{
+    const handleClickPassword = (e) => {
         setErrorPassword(false);
     }
 
-    const iniciarSesion=(e)=>{
+    const iniciarSesion = (e) => {
         e.preventDefault()
-        if(values.password.length ===0 && values.email.length===0){
+        if (values.password.length === 0 && values.email.length === 0) {
             setErrorEmail(true)
             setErrorPassword(true)
             return
         }
-        if(values.password.length ===0){
+        if (values.password.length === 0) {
             setErrorPassword(true)
             return
         }
-        if(values.email.length===0){
+        if (values.email.length === 0) {
             setErrorEmail(true)
             return
         }
 
-        fetch("http://localhost:3001/Login",{
+        fetch("http://localhost:3001/Login", {
             method: 'POST',
             headers: { "Content-Type": "application/json", "Accept": 'application/json' },
             body: JSON.stringify(values)
         })
-        .then(response=>response.json())
-        .then(res=>{
-            if(res.title=="error"){
-                Swal.fire({
-                    title:"Las credenciales ingresadas no son correctas",
-                    icon:"error"
-                })
-                window.location.hash='/Login'
-                return
-            }
-            else{
-                cookie.set('name', res.nombres,{
-                    secure: true, sameSite: 'None', path: '/' 
-                })
-                cookie.set('lastname', res.apellidos,{
-                    secure: true, sameSite: 'None', path: '/' 
-                })
-                cookie.set('email', res.email,{
-                    secure: true, sameSite: 'None', path: '/' 
-                })
-                window.location.hash='/Sesion'
-            }
-        })
-        .catch(()=>Swal.fire({
-            title:"No se puede iniciar sesión por un problema en el servidor",
-            icon:"error"
-        }),
-        window.location.hash='/Login'  )
+            .then(response => response.json())
+            .then(res => {
+                if (res.title == "error") {
+                    Swal.fire({
+                        title: "Las credenciales ingresadas no son correctas",
+                        icon: "error"
+                    })
+                    window.location.hash = '/Login'
+                    return
+                }
+                else {
+                    cookie.set('name', res.nombres, {
+                        secure: true, sameSite: 'None', path: '/'
+                    })
+                    cookie.set('lastname', res.apellidos, {
+                        secure: true, sameSite: 'None', path: '/'
+                    })
+                    cookie.set('email', res.email, {
+                        secure: true, sameSite: 'None', path: '/'
+                    })
+                    window.location.hash = '/Sesion'
+                }
+            })
+            .catch(() => Swal.fire({
+                title: "No se puede iniciar sesión por un problema en el servidor",
+                icon: "error"
+            }),
+                window.location.hash = '/Login')
     }
     return (
-        <div>      
+        <div>
             <div className="bloque">
                 <div className="contenido">
                     <h1>LOGIN</h1>
                     <form onSubmit={iniciarSesion}>
                         <div className="mb-3 caja">
                             <label for="email" className="form-label">Correo Electrónico o Usuario</label>
-                            <input type="email" className="form-control" id="email"  name="email" aria-describedby="emailHelp" onChange={handleChange} onClick={handleClickEmail} />
+                            <input type="email" className="form-control" id="email" name="email" aria-describedby="emailHelp" onChange={handleChange} onClick={handleClickEmail} />
                             {errorEmail ? <p className='text-danger'>el correo no esta de forma correcta</p> : ""}
                         </div>
                         <div className="mb-3 caja">
@@ -107,7 +108,7 @@ const Login = () => {
                                 <span class="input-group-text" onClick={togglePasswordVisibility}>
                                     {showPassword ? <VisibilityOffIcon /> : <VisibilityIcon />}
                                 </span>
-                                {errorPassword? <p className='text-danger'>Contraseña no valida</p> : ""}
+                                {errorPassword ? <p className='text-danger'>Contraseña no valida</p> : ""}
                             </div>
                         </div>
                         <div className="boxInt">
@@ -131,12 +132,10 @@ const Login = () => {
                             </div>
                         </div>
                         <div className='caja-botones'>
-                            <div className="btn d-flex gap-2 justify-content-center border mt-3 shadow-sm btn-google">
-                                <img src={iconGoogle} className='icon' />
-                                <p className='fw-semibold text-secondary mb-0'>Continue with Google</p>
-                            </div>
+                            <OAuthGoogle/>
+                            {/* https://www.youtube.com/watch?v=8m1M3AW5bBE */}
                             <div className="btn btn-primary gap-2 d-flex gap-0 justify-content-center border mt-3 shadow-sm btn-facebook">
-                                <FacebookIcon  className='icon'/>
+                                <FacebookIcon className='icon' />
                                 <p className='fw-semibold mb-0'>Continue with Facebook</p>
                             </div>
                         </div>
