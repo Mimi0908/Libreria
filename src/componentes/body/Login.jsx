@@ -1,13 +1,13 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState} from 'react';
 import './login.css';
 import Swal from 'sweetalert2'
-import iconGoogle from '../../../public/iconGoogle.png'
 import FacebookIcon from '@mui/icons-material/Facebook';
 import { Link } from 'react-router-dom';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 import Cookies from 'universal-cookie';
 import OAuthGoogle from '../oAuthGoogle/oAuthGoogle';
+import FacebookLogin from '../metaFacebook/FacebookLogin';
 
 const Login = () => {
     const cookie = new Cookies();
@@ -132,12 +132,10 @@ const Login = () => {
                             </div>
                         </div>
                         <div className='caja-botones'>
-                            <OAuthGoogle/>
-                            {/* https://www.youtube.com/watch?v=8m1M3AW5bBE */}
-                            <div className="btn btn-primary gap-2 d-flex gap-0 justify-content-center border mt-3 shadow-sm btn-facebook">
-                                <FacebookIcon className='icon' />
-                                <p className='fw-semibold mb-0'>Continue with Facebook</p>
-                            </div>
+                            <OAuthGoogle className=" btn-google"/>
+                            <FacebookLogin className=" btn-facebook"/>
+                            {/*npm i reactjs-social-login react-login-buttons
+                            npm install --save reactjs-social-login*/}
                         </div>
                     </form>
                 </div>

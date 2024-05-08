@@ -95,19 +95,18 @@
 }
 .caja-botones{
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
 }
-.btn-google{
-    width:40%;
-    padding:  10px 10px;
-}
-.btn-facebook{
-    width:40%;
-    padding:  10px 10px;
-}
-.btn-facebook p{
-    color: white;
-}
+
+.custom-facebook-button {
+    width: 100% !important;
+    height: 40px !important;
+    padding: 10px !important; 
+    font-size: 13px !important;
+    font-weight: bold;
+    margin: 0px 10px !important;
+  }
 
 @media screen and (min-width:800px) {
     .registro{
@@ -119,5 +118,8 @@
     .input-group-text{
         width: 35%;
     }
+    .custom-facebook-button {
+        margin: 10px 10px !important;
+      }
 }
 

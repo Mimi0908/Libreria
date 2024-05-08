@@ -8,7 +8,8 @@ const OAuthGoogle = () => {
     const cookie = new Cookies();
     return (
         <div>
-            <GoogleOAuthProvider clientId='943355471323-krri2uc7tnivt3irraus7hc95gm510fv.apps.googleusercontent.com'>
+            <GoogleOAuthProvider clientId='943355471323-krri2uc7tnivt3irraus7hc95gm510fv.apps.googleusercontent.com'
+            className="boxGoogle">
                 <GoogleLogin
                     onSuccess={credentialResponse => {
                         const credentialResponseDecode = jwtDecode(credentialResponse.credential)
