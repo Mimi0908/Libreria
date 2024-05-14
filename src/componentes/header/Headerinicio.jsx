@@ -102,9 +102,9 @@ const Header = () => {
                             <li className="nav-item">
                                 <a className="nav-link"><ShoppingCartOutlinedIcon sx={{ fontSize: 35 }} /></a>
                             </li>
-                            <li className="nav-item dropstart">
-                                <a className="nav-link" role="button" data-bs-toggle="dropdown" aria-expanded="false"><FaceIcon sx={{ fontSize: 50 }} className='text-danger' /></a>
-                                <ul className="dropdown-menu menuUsuario">
+                            <li className="nav-item dropdown">
+                                <a className="nav-link " role="button" data-bs-toggle="dropdown" aria-expanded="false"><FaceIcon sx={{ fontSize: 50 }} className='text-danger' /></a>
+                                <ul className="dropdown-menu dropdown-menu-lg-end menuUsuario">
                                     <p className='bienvenida'>Bienvenid@ <strong>{Cookies.get('name')+" "+Cookies.get('lastname')}</strong><br></br> <span className='text-secondary correo'>{Cookies.get('email')}</span></p>
                                     <hr></hr>
                                     <li><a className="dropdown-item">Configuración</a></li>
