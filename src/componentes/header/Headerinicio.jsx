@@ -6,7 +6,7 @@ import Logo from '/logo.png';
 import HomeIcon from '@mui/icons-material/Home';
 import LibraryBooksIcon from '@mui/icons-material/LibraryBooks';
 import HelpIcon from '@mui/icons-material/Help';
-import FaceIcon from '@mui/icons-material/Face';
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import PersonIcon from '@mui/icons-material/Person';
 import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 import { Link } from 'react-router-dom';
@@ -103,7 +103,7 @@ const Header = () => {
                                 <a className="nav-link"><ShoppingCartOutlinedIcon sx={{ fontSize: 35 }} /></a>
                             </li>
                             <li className="nav-item dropdown">
-                                <a className="nav-link " role="button" data-bs-toggle="dropdown" aria-expanded="false"><FaceIcon sx={{ fontSize: 50 }} className='text-danger' /></a>
+                                <a className="nav-link " role="button" data-bs-toggle="dropdown" aria-expanded="false"><AccountCircleIcon sx={{ fontSize: 50 }} className='text-danger' /></a>
                                 <ul className="dropdown-menu dropdown-menu-lg-end menuUsuario">
                                     <p className='bienvenida'>Bienvenid@ <strong>{Cookies.get('name')+" "+Cookies.get('lastname')}</strong><br></br> <span className='text-secondary correo'>{Cookies.get('email')}</span></p>
                                     <hr></hr>
