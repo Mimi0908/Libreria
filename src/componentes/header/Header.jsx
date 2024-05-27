@@ -66,8 +66,8 @@ const Header = () => {
                                     <Link to='/Autores'><li><a className="dropdown-item" onClick={()=>handleClickAutores("Sigman Mariano")}>Sigman Mariano</a></li></Link>
                                     <Link to='/Autores'><li><a className="dropdown-item" onClick={()=>handleClickAutores("Mario Mendoza")}>Mario Mendoza</a></li></Link>
                                     <Link to='/Autores'><li><a className="dropdown-item" onClick={()=>handleClickAutores("Rick Riordan")}>Rick Riordan</a></li></Link>
-                                    <Link to='/Autores'><li><a className="dropdown-item" onClick={()=>handleClickAutores("Stephen Kin")}>Stephen Kin</a></li></Link>
-                                    <Link to='/Autores'><li><a className="dropdown-item" onClick={()=>handleClickAutores("J.K. Rowlin")}>J.K. Rowlin</a></li></Link>
+                                    <Link to='/Autores'><li><a className="dropdown-item" onClick={()=>handleClickAutores("Stephen King")}>Stephen King</a></li></Link>
+                                    <Link to='/Autores'><li><a className="dropdown-item" onClick={()=>handleClickAutores("J.K. Rowling")}>J.K. Rowling</a></li></Link>
                                     <Link to='/Autores'><li><a className="dropdown-item" onClick={()=>handleClickAutores("Isabel Allende")}>Isabel Allende</a></li></Link>
                                 </ul>
                             </li>

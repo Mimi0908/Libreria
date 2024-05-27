@@ -2,7 +2,7 @@ import React from 'react';
 import { GoogleOAuthProvider } from '@react-oauth/google';
 import { GoogleLogin } from '@react-oauth/google';
 import { jwtDecode } from "jwt-decode";
-import Cookies from 'universal-cookie';
+import Cookies from 'universal-cookie'; 
 
 const OAuthGoogle = () => {
     const cookie = new Cookies();

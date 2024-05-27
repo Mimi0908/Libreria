@@ -124,7 +124,7 @@ export default [
     {
         id: 9,
         title: "Los cuatro acuerdos",
-        autor: " Don Miguel Ruiz",
+        autor: "Don Miguel Ruiz",
         fechaLanzamiento: "05-07-1997",
         description: "Cosmos trata de la ciencia en su contexto humano más amplio y explica cómo la ciencia y la civilización se desarrollan conjuntamente.",
         categoria: "No Ficción",
@@ -168,7 +168,7 @@ export default [
     {
         id: 13,
         title: "Cosas que los nietos deberían saber",
-        autor: " Mark Oliver Everett",
+        autor: "Mark Oliver Everett",
         fechaLanzamiento: "20-11-2007",
         description: "Cosmos trata de la ciencia en su contexto humano más amplio y explica cómo la ciencia y la civilización se desarrollan conjuntamente.",
         categoria: "No Ficción",
