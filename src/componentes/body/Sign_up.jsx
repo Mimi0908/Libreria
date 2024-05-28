@@ -8,7 +8,7 @@ import VisibilityIcon from '@mui/icons-material/Visibility';
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 
 const SignUp = () => {
-let URL=process.env.REACT_APP_ENVIRONMENT
+    let URL=process.env.REACT_APP_ENVIRONMENT
 
     const [showPassword, setShowPassword] = useState(false);
 
