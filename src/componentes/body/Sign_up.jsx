@@ -8,8 +8,8 @@ import VisibilityIcon from '@mui/icons-material/Visibility';
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 
 const SignUp = () => {
-    let URL = process.env.REACT_APP_ENVIRONMENT
-    console.log(URL)
+    let URL = import.meta.env.VITE_APP_ENVIRONMENT;
+    console.log("URL====>", URL);
     const [showPassword, setShowPassword] = useState(false);
 
     const togglePasswordVisibility = () => {

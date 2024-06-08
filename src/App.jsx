@@ -1,6 +1,7 @@
 import React from 'react';
 import {Routes, Route, HashRouter } from 'react-router-dom';
 import Inicio from './componentes/inicio';
+import CarritoVacio from './componentes/carrito/CarritoVacio';
 
 import InicioSecion from './componentes/inicioSecion';
 import Registro from './componentes/registro';
@@ -25,6 +26,7 @@ const App = () => {
             <Route exact path='/CategoriasUsuario' element={<CategoriasUsuario/>}/>
             <Route exact path='/Autores' element={<Autores/>}/>
             <Route exact path='/AutoresUsuario' element={<AutoresUsuario/>}/>
+            <Route exact path='/carrito' element={<CarritoVacio />} />
         </Routes>
        </HashRouter>
     );
