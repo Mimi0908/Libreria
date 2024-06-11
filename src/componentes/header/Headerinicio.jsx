@@ -99,11 +99,12 @@ const Header = () => {
                             <button className="btn btn-danger" type="submit">Search</button>
                         </form>
                         <div className="collapse navbar-collapse" id="navbarSupportedContent">
-                            <Link to='/carrito'>
+                            
                                 <li className="nav-item">
-                                    <a className="nav-link"><ShoppingCartOutlinedIcon sx={{ fontSize: 35 }} />Carrito</a>
+                                <Link to='/carrito' className="nav-link" ><ShoppingCartOutlinedIcon sx={{ fontSize: 35 }} /></Link>
+                                    <a ></a>
                                 </li>
-                            </Link>
+                            
                             <li className="nav-item dropdown">
                                 <a className="nav-link " role="button" data-bs-toggle="dropdown" aria-expanded="false"><AccountCircleIcon sx={{ fontSize: 50 }} className='text-danger' /></a>
                                 <ul className="dropdown-menu dropdown-menu-lg-end menuUsuario">
