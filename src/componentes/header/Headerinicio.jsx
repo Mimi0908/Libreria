@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import Swal from 'sweetalert2'
 import Cookies from 'js-cookie';
 import './header.css';
@@ -10,8 +10,11 @@ import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import PersonIcon from '@mui/icons-material/Person';
 import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 import { Link } from 'react-router-dom';
+import { DataContext } from '../context/DataContext';
 
 const Header = () => {
+    const {librosDelCarrito, setLibrosDelCarrito } = useContext(DataContext);
+
     const handleClickCategoria = (categoria) => {
         window.location.reload();
         localStorage.setItem('categoriaSeleccionada', categoria);
@@ -101,8 +104,7 @@ const Header = () => {
                         <div className="collapse navbar-collapse" id="navbarSupportedContent">
                             
                                 <li className="nav-item">
-                                <Link to='/carrito' className="nav-link" ><ShoppingCartOutlinedIcon sx={{ fontSize: 35 }} /></Link>
-                                    <a ></a>
+                                <Link to='/carrito' className="nav-link" ><ShoppingCartOutlinedIcon sx={{ fontSize: 35 }} />{librosDelCarrito.lenght}</Link>
                                 </li>
                             
                             <li className="nav-item dropdown">

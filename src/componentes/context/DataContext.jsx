@@ -1,8 +1,5 @@
 // React provee información de components sin importar que tan profundo de la jerarquía de componentes este
-
-
-import React, { useState,createContext } from "react"; // esto viene de react
-
+import React, { createContext, useState } from 'react';
 export const DataContext = createContext(); // Es igual a lo que importamos de react
 
 const DataProvider = ({children}) =>{
@@ -14,10 +11,6 @@ const DataProvider = ({children}) =>{
         
 
         <DataContext.Provider value = {{librosDelCarrito, setLibrosDelCarrito, cantidadElementos,setCantidadElementos}}> {children} </DataContext.Provider>
-
-        //lo que hagamos, hay que crear el dataprovider
-
-        // los 4 componentes que estan dentro de los parametros son los que va a enviar dentro de toda la web
     );
 }
 

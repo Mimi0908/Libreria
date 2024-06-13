@@ -1,64 +1,56 @@
-// este componente esta porque el problema que habia(...) esto solo muestra una especie de header y footer
+import React, { useContext } from 'react'
+import CarritoElements from './CarritoElements'
+import {DataContext} from '../context/DataContext'
+import CarritoVacio from './CarritoVacio'
+import Swal from 'sweetalert2'
+import {Link} from 'react-router-dom'
 
+export default function CarritoContents() {
+    const {librosDelCarrito, setLibrosDelCarrito} = useContext(DataContext)
 
-// tambien lleva algo que en caso que la longitud sea 0 muestra..... la ruta del carrito vacio
-
-import React,{useContext} from "react"
-import { Link } from "react-router-dom"
-import CarritoElements from "./CarritoElements"
-import { DataContext } from "../context/DataContext"
-import Swal from "sweetalert2"
-import CarritoVacio from "./CarritoVacio"
-
-
-export function CarritoContent() {
-
-    const{librosDelCarrito, setLibrosDelCarrito} = useContext(DataContext)
-
-    if (librosDelCarrito.length === 0) {
+    if (librosDelCarrito.length === 0){
         return <CarritoVacio/>
     }
 
-    const vaciarCarrito = () =>{
+    const vaciarCarrito = () => {
         Swal.fire({
-            title: "Estas seguro que desea vaciar el contenido del carrito de compras",
-            icon:"question",
-            buttons: true,
+            title: "¿Esta seguro que desea vaciar el contenido del carrito de compras?",
+            icon: "question",
+            buttons:true,
             dangerMode: true,
-            showCancelButton: true,
+            showCancelButton:true,
         })
         .then((result) =>{
-            if (result.isConfirmed) {
+            if(result.isConfirmed){
                 setLibrosDelCarrito([])
                 return
             }
         })
     }
-    
+
     const formatoNumero = (number) =>{
         return new Intl.NumberFormat().format(number)
     }
 
-    const precioTotalCarrito = librosDelCarrito.reduce((a,b) => a+b.precioCarrito,0)
-
+    const precioTotalCarrito = librosDelCarrito.reduce((a,b)=> a+b.precioCarrito,0)
     return (
         <div className="h-100">
             <div className="container h-100 py-5">
                 <div className="row d-flex justify-content-center align-items-center h-100">
                     <div className="col-10">
                         <div className="d-flex justify-content-between align-items-center mb-4">
-                            <h3 className="fw-normal mb-0 text-black">Shopping Cart</h3>
-                            <button type="button" class="btn btn-warning btn-lg" onClick={vaciarCarrito}>Vaciar carrito  <i class="bi bi-cart-x"></i></button>
+                            <h3 className="fw-normal mb-0 text-black">Carrito de compra</h3>
+                            <button type="button" class="btn btn-danger btn-lg" onClick={vaciarCarrito}>Vaciar carrito  <i class="bi bi-cart-x"></i></button>
                             <div>
-                                <Link to='/' ><h4 className="mb-0"><span className="text-muted">Seguir comprando</span></h4></Link>
+                                <Link to='/Sesion' ><h4 className="mb-0"><span className="text-muted">Seguir comprando</span></h4></Link>
                             </div>
                         </div>
                     </div>
                 </div>
-    
+
                 <CarritoElements />
-    
-                <div className="container h-100 py-5">
+
+                <div className="container h-100 py-2">
                     <div className="row d-flex justify-content-center align-items-center h-100">
                         <div className="col-10">
                             <div className="card rounded-3 mb-4">
@@ -72,21 +64,19 @@ export function CarritoContent() {
                         </div>
                     </div>
                 </div>
-    
+
                 <div className="container h-100 py-5">
                     <div className="row d-flex justify-content-center align-items-center h-100">
                         <div className="col-10">
                             <div className="row d-flex justify-content-between align-items-center">
-                                <button type="button" className="btn btn-warning btn-block btn-lg ">Proceed to Pay</button>
+                                <button type="button" className="btn btn-danger btn-block btn-lg ">Pagar</button>
                             </div>
                         </div>
                     </div>
                 </div>
-    
-    
+
+
             </div>
-        </div>
-    )
-
-
+        </div>
+    )
 }
