@@ -76,6 +76,7 @@ const app = express();
 const cors = require("cors");
 const axios = require("axios");
 const methods = require('methods');
+const connection = require('../configDB/configDB');
 app.use(cors())
 
 const controller = {
@@ -142,6 +143,28 @@ const controller = {
                     })
             })
 
+    },
+    registerDB: function(req,res){
+        const{identificacion,
+            nombres,
+            apellidos,
+            email,
+            direccion,
+            telefono,
+            fechaNacimiento,
+            departamento,
+            municipio,
+            passWord} = JSON.parse(JSON.stringify(req,res));
+        try{
+            const sql="INSERT * INTO sql10715859.usuario (identificacion,nombres,apellidos,email,direccion,telefono,fechaNacimiento,departamento,municipio,passWord)"
+            connection.execute(sql, [identificacion,nombres,apellidos,email,direccion,telefono,fechaNacimiento,departamento,municipio,passWord]);
+            res.status(200).send('ok')
+            return
+        }catch(error){
+            console.log('registro fallido ', error);
+            res.status(500).send('no ok')
+            return
+        }
     },
     login: function (req, res) {
         let config = {
