@@ -29,7 +29,7 @@ app.get("/", (rep, res) => {
 const user = require("./controller/userController");
 const send = require('send');
 app.use("/Sign-Up", user.registerDB);
-app.use("/Login", user.login);
+app.use("/Login", user.loginDB);
 
 const conexion = require('./configDB/configDB.js')
 

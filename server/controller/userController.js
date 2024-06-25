@@ -189,6 +189,29 @@ const controller = {
             console.error("Error al procesar el registro:", error);
             res.status(500).send("Error interno del servidor");
         }
+    },
+    loginDB: function(req, res){
+        const {email, password } = req.body;
+        try{
+            const sql="SELECT * FROM sql10715859.usuario WHERE email= ? AND password=?"
+            connection.execute(sql, [email, password], (error, results) => {
+                if (error) {
+                    console.error('Error en la autenticación: ', error);
+                    res.status(500).send('Error en la autenticación');
+                } else {
+                    if (results.length > 0) {
+                        console.log('Usuario autenticado correctamente');
+                        res.status(200).json(results[0]);
+                    } else {
+                        console.log('Credenciales incorrectas');
+                        res.status(401).send('Credenciales incorrectas');
+                    }
+                }
+            });
+        }catch(error){
+            console.log('login fallido ', error);
+            res.status(500).send('no ok')
+        }
     }
 }
 
