@@ -31,11 +31,6 @@ const send = require('send');
 app.use("/Sign-Up", user.registerDB);
 app.use("/Login", user.login);
 
-const PORT = 3001
-app.listen(PORT, () => {
-    console.log("servidor corriendo en el puerto ", PORT)
-})
-
 const conexion = require('./configDB/configDB.js')
 
 app.get("/todos-los-Usuarios", (req, res) => {
@@ -48,3 +43,11 @@ app.get("/todos-los-Usuarios", (req, res) => {
         });
     });
 })
+
+
+const PORT = 3001
+app.listen(PORT, () => {
+    console.log("servidor corriendo en el puerto ", PORT)
+})
+
+
