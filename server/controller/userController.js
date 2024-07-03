@@ -148,7 +148,7 @@ const controller = {
         const { identificacion, nombres, apellidos, email, direccion, telefono, fechaNacimiento, departamento, municipio, password } = req.body;
         
         try{
-            const sql="INSERT INTO sql10715859.usuario (identificacion,nombre,apellidos,email,direccion,telefono,fechaNacimiento,departamento,municipio,password,fechaCreacion) VALUES(?,?,?,?,?,?,?,?,?,?,?)"
+            const sql="INSERT INTO sql10717599.usuario (identificacion,nombre,apellidos,email,direccion,telefono,fechaNacimiento,departamento,municipio,password,fechaCreacion) VALUES(?,?,?,?,?,?,?,?,?,?,?)"
             connection.execute(sql,  [identificacion, nombres, apellidos, email, direccion, telefono, fechaNacimiento, departamento, municipio, password, new Date()]);
             console.log("datos subidos")
             res.status(200).send('ok')
