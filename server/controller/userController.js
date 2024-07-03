@@ -193,7 +193,7 @@ const controller = {
     loginDB: function(req, res){
         const {email, password } = req.body;
         try{
-            const sql="SELECT * FROM sql10715859.usuario WHERE email= ? AND password=?"
+            const sql="SELECT * FROM sql10717599.usuario WHERE email= ? AND password=?"
             connection.execute(sql, [email, password], (error, results) => {
                 if (error) {
                     console.error('Error en la autenticación: ', error);
