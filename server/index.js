@@ -1,18 +1,18 @@
 const express = require('express');
-const app = express();
 const cors = require("cors");
 const axios = require("axios");
 const bodyParser = require("body-parser");
 
+const app = express();
+
+app.use(cors()); // Middleware de CORS debe estar al inicio
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(bodyParser.json());
-app.use(cors());
 
-app.get("/", (rep, res) => {
+app.get("/", (req, res) => {
     let config = {
         method: "GET",
-        //maxBodyLength: Infinity,
         url: "https://api.jsonbin.io/v3/b/6654d652acd3cb34a84e8a8b",
         headers: {
             'Content-Type': 'application/json',
@@ -21,13 +21,19 @@ app.get("/", (rep, res) => {
     };
     axios(config)
         .then(result => {
-            res.send(result.data.record)
+            res.send(result.data.record);
         })
-    //res.send("saludando desde el backend")
-})
+        .catch(error => {
+            res.status(500).send({ error: 'Error fetching data from API' });
+        });
+});
+
+app.use((req, res, next) => {
+    console.log(`Request Method: ${req.method}, Request URL: ${req.url}`);
+    next();
+});
 
 const user = require("./controller/userController");
-const send = require('send');
 app.use("/Sign-Up", user.registerDB);
 app.use("/Login", user.loginDB);
 

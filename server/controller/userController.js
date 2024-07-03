@@ -74,8 +74,8 @@
 const express = require('express');
 const app = express();
 const cors = require("cors");
-const axios = require("axios");
-const methods = require('methods');
+// const axios = require("axios");
+// const methods = require('methods');
 const connection = require('../configDB/configDB');
 app.use(cors())
 
