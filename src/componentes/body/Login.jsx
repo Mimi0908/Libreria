@@ -10,6 +10,8 @@ import OAuthGoogle from '../oAuthGoogle/oAuthGoogle';
 import FacebookLogin from '../metaFacebook/FacebookLogin';
 
 const Login = () => {
+    let URL = import.meta.env.VITE_APP_ENVIRONMENT;
+    console.log("URL====>", URL);
     const cookie = new Cookies();
     const [errorEmail, setErrorEmail] = useState(false);
     const [errorPassword, setErrorPassword] = useState(false);
@@ -56,7 +58,12 @@ const Login = () => {
             return
         }
 
-        fetch("http://localhost:3001/Login", {
+        // fetch("http://localhost:3001/Login", {
+        //     method: 'POST',
+        //     headers: { "Content-Type": "application/json", "Accept": 'application/json' },
+        //     body: JSON.stringify(values)
+        // })
+        fetch(`${URL}/Login`,{
             method: 'POST',
             headers: { "Content-Type": "application/json", "Accept": 'application/json' },
             body: JSON.stringify(values)

@@ -9,10 +9,10 @@ import LoginIcon from '@mui/icons-material/Login';
 import PersonIcon from '@mui/icons-material/Person';
 import { Link } from 'react-router-dom';
 import { DataContext } from '../context/DataContext';
-import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
+// import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 
 const Header = () => {
-    const {librosDelCarrito, setLibrosDelCarrito } = useContext(DataContext);
+    // const {librosDelCarrito, setLibrosDelCarrito } = useContext(DataContext);
 
     const handleClickCategoria = (categoria) => {
         window.location.reload();
@@ -86,9 +86,9 @@ const Header = () => {
                             <button className="btn btn-danger" type="submit">Search</button>
                         </form>
                         <div className="collapse navbar-collapse" id="navbarSupportedContent">
-                            <li className="nav-item">
+                            {/* <li className="nav-item">
                                 <Link to='/carrito' className="nav-link" ><ShoppingCartOutlinedIcon sx={{ fontSize: 35 }} />{librosDelCarrito.lenght}</Link>
-                            </li>
+                            </li> */}
                             <ul className="navbar-nav nav2 me-auto mb-2 mb-lg-0 ">
                                 <Link to='/Sign-Up'>
                                     <li className="nav-item">
