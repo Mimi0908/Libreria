@@ -79,7 +79,7 @@ const Login = () => {
                     return
                 }
                 else {
-                    cookie.set('name', res.nombres, {
+                    cookie.set('name', res.nombre, {
                         secure: true, sameSite: 'None', path: '/'
                     })
                     cookie.set('lastname', res.apellidos, {
